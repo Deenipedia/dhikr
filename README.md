@@ -12,10 +12,11 @@ Visit this link to view live:
 - Firefox: Use the [Custom New Tab Page](https://addons.mozilla.org/en-US/firefox/addon/custom-new-tab-page/) extension to set any website as new tab.
 - Safari: Use this [tutorial](https://www.howtogeek.com/284582/how-to-open-a-new-tab-to-a-specific-webpage-in-your-browser/) on how to set any website as new tab.
 
-## Browser Extensions
+**Browser Extensions**
 - Coming soon
 
 ## Tasbih Representation
+All the Tasbihs listed as below in `data.json`:
 ```
 {
     "SL": 1,
