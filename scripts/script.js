@@ -1,5 +1,6 @@
 var showMilitaryTime = false;
 
+
 function showHours(theHour)
 {
 	if (showMilitaryTime || (theHour > 0 && theHour < 13))
@@ -54,7 +55,7 @@ function Generate() {
     var meaning = document.getElementById('meaning');
     
 
-    $.getJSON('data.json', function(data) {
+    $.getJSON('https://raw.githubusercontent.com/niyazed/dhikr/master/data.json', function(data) {
       arabic.innerText = data[NumberResult].ARABIC
       bangla.innerText = data[NumberResult].BANGLA_UCCHARON
       meaning.innerText = data[NumberResult].BANGLA_ORTHO
