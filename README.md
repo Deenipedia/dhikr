@@ -13,7 +13,7 @@ Visit this link to view live:
 - Safari: Use this [tutorial](https://www.howtogeek.com/284582/how-to-open-a-new-tab-to-a-specific-webpage-in-your-browser/) on how to set any website as new tab.
 
 **Browser Extensions**
-- Firefix Add-on: https://addons.mozilla.org/en-US/firefox/addon/dhikr/
+- Firefox Add-on: https://addons.mozilla.org/en-US/firefox/addon/dhikr/
 
 ## Tasbih Representation
 All the Tasbihs listed as below in `data.json`:
