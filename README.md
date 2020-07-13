@@ -7,11 +7,11 @@ Visit this link to view live:
     https://dhikr.xyz/
 ```
 ## Installation
-**Browser Extensions**
+**1. Browser Extensions**
 - Google Chrome: https://chrome.google.com/webstore/detail/dhikrxyz/alhhipkdolifadffnollpkijfpnlnfka
 - Firefox: https://addons.mozilla.org/en-US/firefox/addon/dhikr/
 
-**How to setup `https://dhikr.xyz/` as new tab?**
+**2. Or Setup `https://dhikr.xyz/` as new tab**
 - Google Chrome: Use the [Custom New Tab URL](https://chrome.google.com/webstore/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia) extension to set any website as new tab.
 - Firefox: Use the [Custom New Tab Page](https://addons.mozilla.org/en-US/firefox/addon/custom-new-tab-page/) extension to set any website as new tab.
 - Safari: Use this [tutorial](https://www.howtogeek.com/284582/how-to-open-a-new-tab-to-a-specific-webpage-in-your-browser/) on how to set any website as new tab.
