@@ -48,7 +48,9 @@ showTime('clock');
 function Generate() {
     var min = 0,
         max = 119,
-        NumberResult = Math.floor(Math.random() * (max - min) + min);
+        mix = Math.random(),
+        rnd = Math.random() * (max - min) + min,
+		NumberResult = Math.floor(rnd * (1 - mix) + 119 * mix);
 
     var arabic = document.getElementById('arabic');
     var bangla = document.getElementById('bangla');
