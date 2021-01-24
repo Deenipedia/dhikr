@@ -1,4 +1,15 @@
 
+// Convert Time Format to 12 hours
+
+async function convertFormat(time){
+    var res = time.split(":")
+    var hours = res[0]
+    var minutes = res[1]
+    var AmOrPm = hours >= 12 ? 'pm' : 'am';
+    hours = (hours % 12) || 12;
+    var finalTime = "Time  - " + hours + ":" + minutes + " " + AmOrPm; 
+    return finalTime
+}
 
 // Get the geolocation 
 
@@ -26,15 +37,15 @@ if ('geolocation' in navigator) {
         document.getElementById("Gregorian").textContent = gregorianDate['date'];
 
         //namaz timings
-        document.getElementById("Fajr").textContent = timings['Fajr'];
-        document.getElementById("Dhuhr").textContent = timings['Dhuhr'];
-        document.getElementById("Asr").textContent = timings['Asr'];
-        document.getElementById("Maghrib").textContent = timings['Maghrib'];
-        document.getElementById("Isha").textContent = timings['Isha'];
-        // document.getElementById("Midnight").textContent = timings['Midnight'];
-        document.getElementById("Imsak").textContent = timings['Imsak'];
-        // document.getElementById("Sunrise").textContent = timings['Sunrise'];
-        // document.getElementById("Sunset").textContent = timings['Sunset'];
+        document.getElementById("Fajr").textContent = convertFormat(timings['Fajr']);
+        document.getElementById("Dhuhr").textContent = convertFormat(timings['Dhuhr']);
+        document.getElementById("Asr").textContent = convertFormat(timings['Asr']);
+        document.getElementById("Maghrib").textContent = convertFormat(timings['Maghrib']);
+        document.getElementById("Isha").textContent = convertFormat(timings['Isha']);
+        // document.getElementById("Midnight").textContent = convertFormat(timings['Midnight']);
+        document.getElementById("Imsak").textContent = convertFormat(timings['Imsak']);
+        // document.getElementById("Sunrise").textContent = convertFormat(timings['Sunrise']);
+        // document.getElementById("Sunset").textContent = convertFormat(timings['Sunset']);
 
         // Working with map and foursquare API
         const attribution = '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors';
