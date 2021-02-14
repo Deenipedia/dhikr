@@ -3,32 +3,54 @@
 <html style="background-color: #f7f7f7;">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhikr.xyz</title>
-    <!-- <script type="text/javascript" src="./jquery-3.2.1.min.js"></script> -->
-    <script src="./script.js"></script>
+    <!-- <script type="text/javascript" src="./main/jquery-3.2.1.min.js"></script> -->
+    <script src="./main/script.js"></script>
 
-    <link rel="stylesheet" href="./bulma.css">
-    <link rel="stylesheet" href="./style.css">
+    <!-- calendar -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="./calendar/style.css" />
+
+    <!-- main css -->
+    <link rel="stylesheet" href="./main/bulma.css">
+    <link rel="stylesheet" href="./main/style.css">
+
+    <!-- font style -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Scheherazade:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-    <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin=""/>
-
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin="">
-    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">  
 
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+    
   </head>
-  <body>
+  <body style="font-family: 'Quicksand', sans-serif;">
   <section class="section">
+    <div class="container is-max-desktop" style="margin-top: -20px;">
+      
+      <!-- <input id="gsearch" class="input is-rounded is-medium is-success" type="text" placeholder="🌍 Google Search" autofocus>
+      <button id="search-button" class="right"></button> -->
+
+      <script>
+      var input = document.getElementById("search-button");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        // document.getElementById("search-button").click();
+        // search();
+        }
+      });
+      input.onclick = function(){
+        search()
+      }
+      </script>
+    </div>
+    <br>
     <div class="container">
         <!-- <p>Fajr: <span id="Fajr"></span></p>
         <p>Dhuhr: <span id="Dhuhr"></span></p>
@@ -39,32 +61,38 @@
         <p>Imsak: <span id="Imsak"></span></p>
         <p>Sunrise: <span id="Sunrise"></span></p>
         <p>Sunset: <span id="Sunset"></span></p> -->
+        
 
         <!-- Column 1 -->
         <div class="columns">
             <div class="column is-6">
               <div class="box">
-
-                <nav class="level is-mobile">
-                  <div class="level-left">
-                    <div class="level-item">
-                      <span>Time: <p id="clock" ></p></span>
-                    </div>
+                <div class="columns">
+                  <div class="column">
+                    <center>
+                      <p class="title is-5">Time</p>
+                      <hr>
+                      <p id="clock" class="subtitle"></p>
+                    </center>
+                    
                   </div>
-
-                  <div class="level-right">
-                    <div class="level-item">
-                      <span>Gregorian: <p id="Gregorian" ></p></span>
-                      <span>Hijri: <p id="Hijri"></p></span>
-                    </div>
+                  <div class="column">
+                    <center>
+                      <p class="title is-5">Date</p>
+                      <hr>
+                      <p id="Gregorian" class="subtitle"></p>
+                    </center>
+                    
                   </div>
-                </nav>
-                
-                <!-- <span>Time: <p id="clock" ></p></span> -->
-                <!-- <span>Gregorian: <p id="Gregorian" ></p></span>
-                <span>Hijri: <p id="Hijri"></p></span> -->
-                
-        
+                  <div class="column">
+                    <center>
+                      <p class="title is-5">Hijri</p>
+                      <hr>
+                      <p id="Hijri" class="subtitle"></p>
+                    </center>
+                    
+                  </div>
+                </div>
               </div>
 
               <div class="columns">
@@ -77,7 +105,8 @@
                           <div class="level-left">
                             <div class="level-item">
                               <small>
-                                <span style="color:  #02bc77;"><p id="Fajr" class="subtitle" ></p>AM</span>
+                                <span style="color:  #02bc77;"><p id="Fajr" class="subtitle" ></p></span> 
+                                <!-- AM/PM -->
                               </small>
                             </div>
                           </div>
@@ -100,7 +129,7 @@
                           <div class="level-left">
                             <div class="level-item">
                               <small>
-                                <span style="color:  #02bc77;"><p id="Dhuhr" class="subtitle" ></p>AM</span>
+                                <span style="color:  #02bc77;"><p id="Dhuhr" class="subtitle" ></p></span>
                               </small>
                             </div>
                           </div>
@@ -125,7 +154,7 @@
                         <div class="level-left">
                           <div class="level-item">
                             <small>
-                              <span style="color:  #02bc77;"><p id="Asr" class="subtitle" ></p>AM</span>
+                              <span style="color:  #02bc77;"><p id="Asr" class="subtitle" ></p></span>
                             </small>
                           </div>
                         </div>
@@ -148,7 +177,7 @@
                         <div class="level-left">
                           <div class="level-item">
                             <small>
-                              <span style="color:  #02bc77;"><p id="Maghrib" class="subtitle" ></p>AM</span>
+                              <span style="color:  #02bc77;"><p id="Maghrib" class="subtitle" ></p></span>
                             </small>
                           </div>
                         </div>
@@ -174,7 +203,7 @@
                         <div class="level-left">
                           <div class="level-item">
                             <small>
-                              <span style="color:  #02bc77;"><p id="Isha" class="subtitle" ></p>AM</span>
+                              <span style="color:  #02bc77;"><p id="Isha" class="subtitle" ></p></span>
                             </small>
                           </div>
                         </div>
@@ -191,9 +220,23 @@
                 <!-- Column 3.2 -->
                 <div class="column">
                   <div class="box">
-                      <p class="title is-5">Imsak</p>
+                      <p class="title is-5">Sunrise</p>
                       <hr>
-                      <p id="Imsak" class="subtitle"></p>
+                      <nav class="level is-mobile">
+                        <div class="level-left">
+                          <div class="level-item">
+                            <small>
+                              <span style="color:  #02bc77;"><p id="Sunrise" class="subtitle" ></p></span>
+                            </small>
+                          </div>
+                        </div>
+
+                        <div class="level-right">
+                          <div class="level-item">
+                            <img src="./images/sunrise.png" alt="" class="src" width="34px">
+                          </div>
+                        </div>
+                      </nav>
                   </div>
               </div>
             </div>
@@ -212,13 +255,45 @@
 
               <div class="box">
                 <!-- <p class="subtitle">This column is only 200px wide.</p> -->
-                <div style="height: 450px;" id="mapid"></div>
+                <main>
+                  <div class="calendar-container">
+                    <div class="calendar-container__header">
+                      <button
+                        class="calendar-container__btn calendar-container__btn--left"
+                        title="Vorige maand"
+                      >
+                        <i class="icon ion-ios-arrow-back"></i>
+                      </button>
+                      <h2 class="calendar-container__title"></h2>
+                      <button
+                        class="calendar-container__btn calendar-container__btn--right"
+                        title="Volgende maand"
+                      >
+                        <i class="icon ion-ios-arrow-forward"></i>
+                      </button>
+                    </div>
+                    <div class="calendar-container__body">
+                      <div class="calendar-table">
+                        <div class="calendar-table__header"></div>
+                        <div class="calendar-table__body"></div>
+                      </div>
+                    </div>
+                  </div>
+                </main>
               </div>
             </div>
             
         </div>
     </div>
   </section>
+  <footer class="footer" style="background-color: #f7f7f7;">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Dhikr.xyz</strong> by <a href="https://github.com/Deenipedia">Deenipedia</a>. 
+      </p>
+    </div>
+  </footer>
   
+  <script src="./calendar/script.js"></script>
   </body>
 </html>

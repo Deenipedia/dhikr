@@ -46,3 +46,15 @@
       opacity: 1;
     }
   }
+
+  .right {
+    float: right;
+    margin-top: -45px;
+    margin-right: 10px;
+}
+
+body{
+  /* zoom: 0.9; */
+  transform: scale(0.9);
+  background-color: #f7f7f7;
+}
