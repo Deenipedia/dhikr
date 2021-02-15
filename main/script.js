@@ -1,5 +1,4 @@
 // Convert Time Format to 12 hours
-
 async function convertFormat(time){
     var res = time.split(":")
     var hours = res[0]
@@ -21,9 +20,11 @@ function getCurrentDate() {
     return today;
 }
 
+
 function getKey(latitude, longitude) {
     return 'date=' + getCurrentDate() + '&latitude=' + latitude + '&longitude=' + longitude;
 }
+
 
 async function search() {
     var q = document.getElementById("gsearch").value;
@@ -31,7 +32,6 @@ async function search() {
 }
 
 // Get the geolocation 
-
 if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition( async function(position){
         // get location of the user
@@ -56,6 +56,7 @@ if ('geolocation' in navigator) {
             data = await response.json()
             localStorage.setItem(key, data);
         }
+
 
         // console.log(data)
         const timings = data['data']['timings']
