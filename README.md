@@ -2,7 +2,7 @@
 A small companion of your daily dhikr while you work or surf internet. Recite Tasbih everytime you open a new tab.
 
 ## Getting Started
-Visit this link to view live:
+Visit this link to view live (old version):
 ```
     https://dhikr.xyz/
 ```
