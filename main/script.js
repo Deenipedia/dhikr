@@ -10,6 +10,20 @@ async function convertFormat(time){
     return finalTime
 }
 
+function getCurrentDate() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
+
+    return today;
+}
+
+function getKey(latitude, longitude) {
+    return 'date=' + getCurrentDate() + '&latitude=' + latitude + '&longitude=' + longitude;
+}
 
 async function search() {
     var q = document.getElementById("gsearch").value;
@@ -23,13 +37,26 @@ if ('geolocation' in navigator) {
         // get location of the user
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;    
-        console.log(latitude, longitude)
-
-        const url = 'http://api.aladhan.com/v1/timings?method=1&school=1&latitude='+latitude+'&longitude='+longitude 
-        // http://api.aladhan.com/v1/timings?method=1&school=1&latitude=23.7745978&longitude=90.4219535
+        // console.log(latitude, longitude)
         
-        const response = await fetch(url);
-        const data = await response.json()
+        // Eventually We would want to have the key
+        // as a combination of date and coords as the 
+        // user might be travelling
+        const key = getCurrentDate();
+        let data = localStorage.getItem(key);
+        
+        // This is for caching the response once we 
+        // receive it. Otherwise this is loaded every
+        // time the user opens the page
+        if (!data) {
+            const url = 'http://api.aladhan.com/v1/timings?method=1&school=1&latitude='+latitude+'&longitude='+longitude 
+            // http://api.aladhan.com/v1/timings?method=1&school=1&latitude=23.7745978&longitude=90.4219535
+        
+            const response = await fetch(url);
+            data = await response.json()
+            localStorage.setItem(key, data);
+        }
+
         // console.log(data)
         const timings = data['data']['timings']
         const hijiDate = data['data']['date']['hijri']
