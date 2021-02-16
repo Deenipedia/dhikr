@@ -54,9 +54,10 @@ if ('geolocation' in navigator) {
         
             const response = await fetch(url);
             data = await response.json()
-            localStorage.setItem(key, data);
+            localStorage.setItem(key, JSON.stringify(data));
+        } else {
+            data = JSON.parse(data);
         }
-
 
         // console.log(data)
         const timings = data['data']['timings']
