@@ -1,11 +1,11 @@
 // Convert Time Format to 12 hours
-function convertFormat(time){
+async function convertFormat(time){
     var res = time.split(":")
     var hours = res[0]
     var minutes = res[1]
     var AmOrPm = hours >= 12 ? 'PM' : 'AM';
     hours = (hours % 12) || 12;
-    var finalTime = hours + ":" + minutes + " " + AmOrPm; 
+    var finalTime = hours + ":" + minutes + " " + AmOrPm;
     return finalTime
 }
 
@@ -32,21 +32,18 @@ async function search() {
 }
 
 function processData(data) {
-    // console.log(data)
     const timings = data['data']['timings']
     const hijiDate = data['data']['date']['hijri']
     const gregorianDate = data['data']['date']['gregorian']
 
     //namaz timings
-    wakts = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha', 'Sunrise']
-    for (item in data['data']['timings']) {
-        if (wakts.includes(item)) {
-            convertFormat(timings[item]).then(function (response) {
-                // console.log(item, timings[item], response)
-                document.getElementById(String(item)).textContent = response;
-            })
-        }
-    }
+    const wakts = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha', 'Sunrise']
+    wakts
+        .filter(wakt => wakt in timings)
+        .forEach(item => convertFormat(timings[item])
+            .then((response) =>
+                document.getElementById(String(item)).textContent = response
+            ));
 
     //date
     document.getElementById("Hijri").textContent = hijiDate['date'];
@@ -64,55 +61,42 @@ function processData(data) {
     // // document.getElementById("Sunset").textContent = convertFormat(timings['Sunset']);
 }
 
-// Get the geolocation
-if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition( async function(position){
-        // get location of the user
-        const latitude  = position.coords.latitude;
-        const longitude = position.coords.longitude;    
+// Eventually We would want to have the key
+// as a combination of date and coords as the
+// user might be travelling
+const key = getCurrentDate();
 
-        // Eventually We would want to have the key
-        // as a combination of date and coords as the 
-        // user might be travelling
-        const key = getCurrentDate();
+let clockDisplayDelay = 1000;
 
-        chrome.storage.local.get([key], cachedData => {
-            if (cachedData[key])
-                processData(cachedData[key]);
-            else {
-                const url = 'http://api.aladhan.com/v1/timings?method=1&school=1&latitude='+latitude+'&longitude='+longitude
-
-                const response = await fetch(url);
-                const data = await response.json()
-
-                chrome.storage.local.set({ [key]: data }, () => {});
-
-                processData(data);
-            }
-        });
-    })
+function showClock() {
+    document.getElementById("clock").innerHTML = new Date().toLocaleTimeString();
 }
 
-else {
-    console.log('Geolocation is not supported by your browser');
-    alert('Geolocation is not supported by your browser');
-}
+chrome.storage.local.get([key], cachedData => {
+    if (cachedData[key]) {
+        processData(cachedData[key]);
+        showClock();
+    } else if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition( async function(position){
+            // get location of the user
+            const latitude  = position.coords.latitude;
+            const longitude = position.coords.longitude;
 
-// show clock
+            fetch('http://api.aladhan.com/v1/timings?method=1&school=1&latitude='+latitude+'&longitude='+longitude)
+                .then(response => chrome.storage.local.clear() || response.json())
+                .then(data => chrome.storage.local.set({ [key]: data }, () => processData(data)))
+                .finally(showClock);
+        })
+    } else {
+        console.log('Geolocation is not supported by your browser');
+        alert('Geolocation is not supported by your browser');
+        showClock();
+    }
+});
 
-var idVar = setInterval(() => { 
-    timer()
- }, 1000);
- 
- function timer() {
-    var dateVar = new Date();
-    var time = dateVar.toLocaleTimeString();
-    document.getElementById("clock").innerHTML = time;
- };
- 
 
  // Random Dhikr script passing
- 
+
 async function Generate() {
     const dhikr_res = await fetch('https://raw.githubusercontent.com/Deenipedia/dhikr/master/data.json');
     const dhikr = await dhikr_res.json()
