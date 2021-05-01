@@ -1,5 +1,5 @@
 // Convert Time Format to 12 hours
-async function convertFormat(time){
+function convertFormat(time){
     var res = time.split(":")
     var hours = res[0]
     var minutes = res[1]
@@ -31,66 +31,65 @@ async function search() {
     location.replace("https://www.google.com/search?q=" + q + "");
 }
 
-// Get the geolocation 
+function processData(data) {
+    // console.log(data)
+    const timings = data['data']['timings']
+    const hijiDate = data['data']['date']['hijri']
+    const gregorianDate = data['data']['date']['gregorian']
+
+    //namaz timings
+    wakts = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha', 'Sunrise']
+    for (item in data['data']['timings']) {
+        if (wakts.includes(item)) {
+            convertFormat(timings[item]).then(function (response) {
+                // console.log(item, timings[item], response)
+                document.getElementById(String(item)).textContent = response;
+            })
+        }
+    }
+
+    //date
+    document.getElementById("Hijri").textContent = hijiDate['date'];
+    document.getElementById("Gregorian").textContent = gregorianDate['date'];
+
+    //namaz timings
+    // document.getElementById("Fajr").textContent = convertFormat(timings['Fajr']);
+    // document.getElementById("Dhuhr").textContent = convertFormat(timings['Dhuhr']);
+    // document.getElementById("Asr").textContent = convertFormat(timings['Asr']);
+    // document.getElementById("Maghrib").textContent = convertFormat(timings['Maghrib']);
+    // document.getElementById("Isha").textContent = convertFormat(timings['Isha']);
+    // // document.getElementById("Midnight").textContent = convertFormat(timings['Midnight']);
+    // // document.getElementById("Imsak").textContent = convertFormat(timings['Imsak']);
+    // document.getElementById("Sunrise").textContent = convertFormat(timings['Sunrise']);
+    // // document.getElementById("Sunset").textContent = convertFormat(timings['Sunset']);
+}
+
+// Get the geolocation
 if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition( async function(position){
         // get location of the user
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;    
-        // console.log(latitude, longitude)
-        
+
         // Eventually We would want to have the key
         // as a combination of date and coords as the 
         // user might be travelling
         const key = getCurrentDate();
-        let data = localStorage.getItem(key);
-        
-        // This is for caching the response once we 
-        // receive it. Otherwise this is loaded every
-        // time the user opens the page
-        if (!data) {
-            const url = 'http://api.aladhan.com/v1/timings?method=1&school=1&latitude='+latitude+'&longitude='+longitude 
-            // http://api.aladhan.com/v1/timings?method=1&school=1&latitude=23.7745978&longitude=90.4219535
-        
-            const response = await fetch(url);
-            data = await response.json()
-            localStorage.setItem(key, JSON.stringify(data));
-        } else {
-            data = JSON.parse(data);
-        }
 
-        // console.log(data)
-        const timings = data['data']['timings']
-        const hijiDate = data['data']['date']['hijri']
-        const gregorianDate = data['data']['date']['gregorian']
+        chrome.storage.local.get([key], cachedData => {
+            if (cachedData[key])
+                processData(cachedData[key]);
+            else {
+                const url = 'http://api.aladhan.com/v1/timings?method=1&school=1&latitude='+latitude+'&longitude='+longitude
 
-        //namaz timings
-        wakts = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha', 'Sunrise']
-        for(item in data['data']['timings']){
-            if (wakts.includes(item)){
-                await convertFormat(timings[item]).then(function(response){
-                    // console.log(item, timings[item], response)
-                    document.getElementById(String(item)).textContent = response;
-                })
+                const response = await fetch(url);
+                const data = await response.json()
+
+                chrome.storage.local.set({ [key]: data }, () => {});
+
+                processData(data);
             }
-        }
-
-        //date
-        document.getElementById("Hijri").textContent = hijiDate['date'];
-        document.getElementById("Gregorian").textContent = gregorianDate['date'];
-
-        //namaz timings
-        // document.getElementById("Fajr").textContent = convertFormat(timings['Fajr']);
-        // document.getElementById("Dhuhr").textContent = convertFormat(timings['Dhuhr']);
-        // document.getElementById("Asr").textContent = convertFormat(timings['Asr']);
-        // document.getElementById("Maghrib").textContent = convertFormat(timings['Maghrib']);
-        // document.getElementById("Isha").textContent = convertFormat(timings['Isha']);
-        // // document.getElementById("Midnight").textContent = convertFormat(timings['Midnight']);
-        // // document.getElementById("Imsak").textContent = convertFormat(timings['Imsak']);
-        // document.getElementById("Sunrise").textContent = convertFormat(timings['Sunrise']);
-        // // document.getElementById("Sunset").textContent = convertFormat(timings['Sunset']);
-
-        
+        });
     })
 }
 
