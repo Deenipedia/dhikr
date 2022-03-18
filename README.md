@@ -1,11 +1,7 @@
 <img src="images/dhikr_gray.png" alt="dhikr" width="200">
 A small companion of your daily dhikr while you work or surf internet. Recite Tasbih everytime you open a new tab.
 
-## Getting Started
-Visit this link to view live (old version):
-```
-    https://dhikr.xyz/
-```
+
 ## Installation
 **Browser Extensions**
 - Google Chrome: https://chrome.google.com/webstore/detail/dhikrxyz/alhhipkdolifadffnollpkijfpnlnfka
