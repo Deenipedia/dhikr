@@ -1,58 +1,46 @@
-
 <!DOCTYPE html>
 <html style="background-color: #f7f7f7;">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhikr.xyz</title>
-    <!-- <script type="text/javascript" src="./main/jquery-3.2.1.min.js"></script> -->
-    <script src="./main/script.js"></script>
 
-    <!-- calendar -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
-    <link rel="stylesheet" href="./calendar/style.css" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhikr.xyz</title>
+  <!-- <script type="text/javascript" src="./main/jquery-3.2.1.min.js"></script> -->
+  <script src="./main/script.js"></script>
 
-    <!-- main css -->
-    <link rel="stylesheet" href="./main/bulma.css">
-    <link rel="stylesheet" href="./main/style.css">
+  <!-- calendar -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet" />
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+  <link rel="stylesheet" href="./calendar/style.css" />
 
-    <!-- font style -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Scheherazade:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <!-- main css -->
+  <link rel="stylesheet" href="./main/bulma.css">
+  <link rel="stylesheet" href="./main/style.css">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">  
+  <!-- font style -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
 
-    
-  </head>
-  <body style="font-family: 'Quicksand', sans-serif;">
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+
+</head>
+
+<body style="font-family: 'Quicksand', sans-serif;">
   <section class="section">
     <div class="container is-max-desktop" style="margin-top: -20px;">
-      
-      <!-- <input id="gsearch" class="input is-rounded is-medium is-success" type="text" placeholder="🌍 Google Search" autofocus>
-      <button id="search-button" class="right"></button> -->
 
-      <!--<script>
-      var input = document.getElementById("search-button");
-      input.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-        event.preventDefault();
-        // document.getElementById("search-button").click();
-        // search();
-        }
-      });
-      input.onclick = function(){
-        search()
-      }
-      </script>-->
+      <input id="gsearch" class="input is-rounded is-medium is-success" type="text" placeholder="🌍 Google Search"
+        autofocus>
+
     </div>
     <br>
     <div class="container">
-        <!-- <p>Fajr: <span id="Fajr"></span></p>
+      <!-- <p>Fajr: <span id="Fajr"></span></p>
         <p>Dhuhr: <span id="Dhuhr"></span></p>
         <p>Asr: <span id="Asr"></span></p>
         <p>Maghrib: <span id="Maghrib"></span></p>
@@ -61,239 +49,248 @@
         <p>Imsak: <span id="Imsak"></span></p>
         <p>Sunrise: <span id="Sunrise"></span></p>
         <p>Sunset: <span id="Sunset"></span></p> -->
-        
-
-        <!-- Column 1 -->
-        <div class="columns">
-            <div class="column is-6">
-              <div class="box">
-                <div class="columns">
-                  <div class="column">
-                    <center>
-                      <p class="title is-5">Time</p>
-                      <hr>
-                      <p id="clock" class="subtitle"></p>
-                    </center>
-                    
-                  </div>
-                  <div class="column">
-                    <center>
-                      <p class="title is-5">Date</p>
-                      <hr>
-                      <p id="Gregorian" class="subtitle"></p>
-                    </center>
-                    
-                  </div>
-                  <div class="column">
-                    <center>
-                      <p class="title is-5">Hijri</p>
-                      <hr>
-                      <p id="Hijri" class="subtitle"></p>
-                    </center>
-                    
-                  </div>
-                </div>
-              </div>
-
-              <div class="columns">
-                  <!-- Column 1.1 -->
-                  <div class="column">
-                      <div class="box">
-                        <p class="title is-5">Fajr</p>
-                        <hr>
-                        <nav class="level is-mobile">
-                          <div class="level-left">
-                            <div class="level-item">
-                              <small>
-                                <span style="color:  #02bc77;"><p id="Fajr" class="subtitle" ></p></span> 
-                                <!-- AM/PM -->
-                              </small>
-                            </div>
-                          </div>
-
-                          <div class="level-right">
-                            <div class="level-item">
-                              <img src="./images/fajr.png" alt="" class="src">
-                            </div>
-                          </div>
-                        </nav>
-                      </div>
-                  </div>
-
-                  <!-- Column 1.2 -->
-                  <div class="column">
-                    <div class="box">
-                        <p class="title is-5">Dhuhr</p>
-                        <hr>
-                        <nav class="level is-mobile">
-                          <div class="level-left">
-                            <div class="level-item">
-                              <small>
-                                <span style="color:  #02bc77;"><p id="Dhuhr" class="subtitle" ></p></span>
-                              </small>
-                            </div>
-                          </div>
-
-                          <div class="level-right">
-                            <div class="level-item">
-                              <img src="./images/dhuhr.png" alt="" class="src">
-                            </div>
-                          </div>
-                        </nav>
-                    </div>
-                </div>
-              </div>
-
-              <div class="columns">
-                <!-- Column 2.1 -->
-                <div class="column">
-                    <div class="box">
-                      <p class="title is-5">Asr</p>
-                      <hr>
-                      <nav class="level is-mobile">
-                        <div class="level-left">
-                          <div class="level-item">
-                            <small>
-                              <span style="color:  #02bc77;"><p id="Asr" class="subtitle" ></p></span>
-                            </small>
-                          </div>
-                        </div>
-
-                        <div class="level-right">
-                          <div class="level-item">
-                            <img src="./images/asr.png" alt="" class="src">
-                          </div>
-                        </div>
-                      </nav>
-                    </div>
-                </div>
-
-                <!-- Column 2.2 -->
-                <div class="column">
-                  <div class="box">
-                      <p class="title is-5">Maghrib</p>
-                      <hr>
-                      <nav class="level is-mobile">
-                        <div class="level-left">
-                          <div class="level-item">
-                            <small>
-                              <span style="color:  #02bc77;"><p id="Maghrib" class="subtitle" ></p></span>
-                            </small>
-                          </div>
-                        </div>
-
-                        <div class="level-right">
-                          <div class="level-item">
-                            <img src="./images/maghrib.png" alt="" class="src">
-                          </div>
-                        </div>
-                      </nav>
-                  </div>
-              </div>
-            </div>
 
 
+      <!-- Column 1 -->
+      <div class="columns">
+        <div class="column is-6">
+          <div class="box">
             <div class="columns">
-                <!-- Column 3.1 -->
-                <div class="column">
-                    <div class="box">
-                      <p class="title is-5">Isha</p>
-                      <hr>
-                      <nav class="level is-mobile">
-                        <div class="level-left">
-                          <div class="level-item">
-                            <small>
-                              <span style="color:  #02bc77;"><p id="Isha" class="subtitle" ></p></span>
-                            </small>
-                          </div>
-                        </div>
+              <div class="column">
+                <center>
+                  <p class="title is-5">Time</p>
+                  <hr>
+                  <p id="clock" class="subtitle"></p>
+                </center>
 
-                        <div class="level-right">
-                          <div class="level-item">
-                            <img src="./images/isha.png" alt="" class="src">
-                          </div>
-                        </div>
-                      </nav>
-                    </div>
-                </div>
+              </div>
+              <div class="column">
+                <center>
+                  <p class="title is-5">Date</p>
+                  <hr>
+                  <p id="Gregorian" class="subtitle"></p>
+                </center>
 
-                <!-- Column 3.2 -->
-                <div class="column">
-                  <div class="box">
-                      <p class="title is-5">Sunrise</p>
-                      <hr>
-                      <nav class="level is-mobile">
-                        <div class="level-left">
-                          <div class="level-item">
-                            <small>
-                              <span style="color:  #02bc77;"><p id="Sunrise" class="subtitle" ></p></span>
-                            </small>
-                          </div>
-                        </div>
+              </div>
+              <div class="column">
+                <center>
+                  <p class="title is-5">Hijri</p>
+                  <hr>
+                  <p id="Hijri" class="subtitle"></p>
+                </center>
 
-                        <div class="level-right">
-                          <div class="level-item">
-                            <img src="./images/sunrise.png" alt="" class="src" width="34px">
-                          </div>
-                        </div>
-                      </nav>
-                  </div>
               </div>
             </div>
+          </div>
 
-
-            </div>
-
-            <!-- 2nd column -->
-            <div class="column is-6">
+          <div class="columns">
+            <!-- Column 1.1 -->
+            <div class="column">
               <div class="box">
-                <!-- <p class="title is-5">Flexible column</p> -->
-                <p id="arabic" class="fade-in-1 title is-1 has-text-centered " style="color:  #02bc77; padding-top: 2%; font-size:45px; font-family: 'Scheherazade', serif;"></p><br>
-                <p id="bangla" class="fade-in-2 subtitle is-5 has-text-centered" ></p>
-                <h2 id="meaning" class="fade-in-3 has-text-centered"></h2>
-              </div>
-
-              <div class="box">
-                <!-- <p class="subtitle">This column is only 200px wide.</p> -->
-                <main>
-                  <div class="calendar-container">
-                    <div class="calendar-container__header">
-                      <button
-                        class="calendar-container__btn calendar-container__btn--left"
-                        title="Vorige maand"
-                      >
-                        <i class="icon ion-ios-arrow-back"></i>
-                      </button>
-                      <h2 class="calendar-container__title"></h2>
-                      <button
-                        class="calendar-container__btn calendar-container__btn--right"
-                        title="Volgende maand"
-                      >
-                        <i class="icon ion-ios-arrow-forward"></i>
-                      </button>
-                    </div>
-                    <div class="calendar-container__body">
-                      <div class="calendar-table">
-                        <div class="calendar-table__header"></div>
-                        <div class="calendar-table__body"></div>
-                      </div>
+                <p class="title is-5">Fajr</p>
+                <hr>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <small>
+                        <span style="color:  #02bc77;">
+                          <p id="Fajr" class="subtitle"></p>
+                        </span>
+                        <!-- AM/PM -->
+                      </small>
                     </div>
                   </div>
-                </main>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <img src="./images/fajr.png" alt="" class="src">
+                    </div>
+                  </div>
+                </nav>
               </div>
             </div>
-            
+
+            <!-- Column 1.2 -->
+            <div class="column">
+              <div class="box">
+                <p class="title is-5">Dhuhr</p>
+                <hr>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <small>
+                        <span style="color:  #02bc77;">
+                          <p id="Dhuhr" class="subtitle"></p>
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <img src="./images/dhuhr.png" alt="" class="src">
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns">
+            <!-- Column 2.1 -->
+            <div class="column">
+              <div class="box">
+                <p class="title is-5">Asr</p>
+                <hr>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <small>
+                        <span style="color:  #02bc77;">
+                          <p id="Asr" class="subtitle"></p>
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <img src="./images/asr.png" alt="" class="src">
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Column 2.2 -->
+            <div class="column">
+              <div class="box">
+                <p class="title is-5">Maghrib</p>
+                <hr>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <small>
+                        <span style="color:  #02bc77;">
+                          <p id="Maghrib" class="subtitle"></p>
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <img src="./images/maghrib.png" alt="" class="src">
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="columns">
+            <!-- Column 3.1 -->
+            <div class="column">
+              <div class="box">
+                <p class="title is-5">Isha</p>
+                <hr>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <small>
+                        <span style="color:  #02bc77;">
+                          <p id="Isha" class="subtitle"></p>
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <img src="./images/isha.png" alt="" class="src">
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Column 3.2 -->
+            <div class="column">
+              <div class="box">
+                <p class="title is-5">Sunrise</p>
+                <hr>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <small>
+                        <span style="color:  #02bc77;">
+                          <p id="Sunrise" class="subtitle"></p>
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <img src="./images/sunrise.png" alt="" class="src" width="34px">
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+
         </div>
+
+        <!-- 2nd column -->
+        <div class="column is-6">
+          <div class="box">
+            <!-- <p class="title is-5">Flexible column</p> -->
+            <p id="arabic" class="fade-in-1 title is-1 has-text-centered "
+              style="color:  #02bc77; padding-top: 2%; font-size:45px; font-family: 'Scheherazade', serif;"></p><br>
+            <p id="bangla" class="fade-in-2 subtitle is-5 has-text-centered"></p>
+            <h2 id="meaning" class="fade-in-3 has-text-centered"></h2>
+          </div>
+
+          <div class="box">
+            <!-- <p class="subtitle">This column is only 200px wide.</p> -->
+            <main>
+              <div class="calendar-container">
+                <div class="calendar-container__header">
+                  <button class="calendar-container__btn calendar-container__btn--left" title="Vorige maand">
+                    <i class="icon ion-ios-arrow-back"></i>
+                  </button>
+                  <h2 class="calendar-container__title"></h2>
+                  <button class="calendar-container__btn calendar-container__btn--right" title="Volgende maand">
+                    <i class="icon ion-ios-arrow-forward"></i>
+                  </button>
+                </div>
+                <div class="calendar-container__body">
+                  <div class="calendar-table">
+                    <div class="calendar-table__header"></div>
+                    <div class="calendar-table__body"></div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
   <footer class="footer" style="background-color: #f7f7f7;">
     <div class="content has-text-centered">
       <p>
-        <strong>Dhikr.xyz</strong> by <a href="https://github.com/Deenipedia">Deenipedia</a>. 
+        <strong>Dhikr.xyz</strong> by <a href="https://github.com/Deenipedia">Deenipedia</a>.
       </p>
     </div>
   </footer>
-  
+
   <script src="./calendar/script.js"></script>
-  </body>
+
+</body>
+
 </html>
