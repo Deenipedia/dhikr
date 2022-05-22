@@ -1,5 +1,5 @@
 // Convert Time Format to 12 hours
-async function convertFormat(time){
+async function convertFormat(time) {
     var res = time.split(":")
     var hours = res[0]
     var minutes = res[1]
@@ -26,10 +26,22 @@ function getKey(latitude, longitude) {
 }
 
 
-async function search() {
-    var q = document.getElementById("gsearch").value;
-    location.replace("https://www.google.com/search?q=" + q + "");
-}
+
+
+// Search bar implementation
+document.addEventListener('DOMContentLoaded', function () {
+    var input = document.getElementById("gsearch");
+    input.focus()
+    input.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            console.log(input.value)
+            location.replace("https://www.google.com/search?q=" + input.value + "")
+        }
+    });
+});
+
+
 
 function processData(data) {
     const timings = data['data']['timings']
@@ -77,12 +89,12 @@ chrome.storage.local.get([key], cachedData => {
         processData(cachedData[key]);
         showClock();
     } else if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition( async function(position){
+        navigator.geolocation.getCurrentPosition(async function (position) {
             // get location of the user
-            const latitude  = position.coords.latitude;
+            const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
 
-            fetch('http://api.aladhan.com/v1/timings?method=1&school=1&latitude='+latitude+'&longitude='+longitude)
+            fetch('http://api.aladhan.com/v1/timings?method=1&school=1&latitude=' + latitude + '&longitude=' + longitude)
                 .then(response => chrome.storage.local.clear() || response.json())
                 .then(data => chrome.storage.local.set({ [key]: data }, () => processData(data)))
                 .finally(showClock);
@@ -95,7 +107,7 @@ chrome.storage.local.get([key], cachedData => {
 });
 
 
- // Random Dhikr script passing
+// Random Dhikr script passing
 
 async function Generate() {
     const dhikr_res = await fetch('https://raw.githubusercontent.com/Deenipedia/dhikr/master/data.json');
@@ -120,3 +132,8 @@ async function Generate() {
 
 Generate();
 
+// function main(){
+//     localStorage.setItem("test", "test");
+// }
+
+// main();
