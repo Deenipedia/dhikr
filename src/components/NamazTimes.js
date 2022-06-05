@@ -1,60 +1,47 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import './App.css';
-import logo from './logo.svg';
-function App() {
-    let namazT=[];
-    const [data ,setData]=useState({});
-    const location = {
-        latitute:'23',
-        longitute:'90'
-    };
 
-   // const url =`https://jsonplaceholder.typicode.com/users`
-    const url =`http://api.aladhan.com/v1/timings/1398332113?latitude=${location.latitute}&longitude=${location.longitute}&method=2`
-    useEffect( ()=>{
-        async function getNamajTime()
-        {
-            const result=await axios(url);
+const NamazTimes = () => {
+    const post = []
+    /* Apple section */
+    const [data, setData] = useState({});
+    const location = {
+        latitute: '23',
+        longitute: '90'
+    };
+    const url = `http://api.aladhan.com/v1/timings/1398332113?latitude=${location.latitute}&longitude=${location.longitute}&method=2`
+    useEffect(() => {
+        async function getNamajTime() {
+            const result = await axios(url);
             //namazT=Object.values(result.data.timings);
             setData(result.data);
             //setData(result.data);
 
         };
 
-         getNamajTime();
-    },[])
-    let tmp={};
+        getNamajTime();
+    }, [])
+    const tmp = {...data.data?.timings};
+    const namazT = Object.values(tmp);
 
-    tmp={
-        ...data.data?.timings
-    };
-    namazT=Object.values(tmp);
-    console.log(namazT);
+    /* Apple section */
 
 
+    for (let i = 0; i < 24; i++) post.push(<li></li>);
+    const NNIndex = 0;
 
-  return (
-    <div className="App">
+    let namazN = ["Fajr", "Sunrise", "Dhuhr", "Asr", "Sunset", "Maghrib", "Isha", "Imsak", "Midnight"];
+    namazT.forEach(it => {
+        post[it - 1] = <li><b>{namazN[NNIndex]}</b> {it > 12 ? (it - 12) + ":00" : it + ":00"}
+            <apm>{it > 12 ? "pm" : "am"}</apm>
+        </li>;
 
+        NNIndex++;
+    });
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    return <div className="ll-clock-holder"><h4>Namaz Times</h4>
+        <ul>{post}</ul>
     </div>
-  );
-}
+};
 
-export default App;
+export default NamazTimes
