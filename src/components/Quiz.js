@@ -9,7 +9,7 @@ const Quiz = () => {
         fetch(URL)
             .then(res => res.json())
             .then(list => {
-                const listLength=Object.keys(list).length;
+                const listLength=Object.keys(list).length-1;
                 return list[Math.floor(Math.random() * listLength)]
             })
             .then(setHadith)
