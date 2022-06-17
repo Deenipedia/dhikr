@@ -1,10 +1,27 @@
-const Dhikr = () => (
-    <div className="mt-content">
-        <h4>حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ</h4>
-        <h1>হাসবুনাল্ল-হু ওয়া নি‘মাল ওয়াকীল</h1>
-        <p>আল্লাহই আমাদের জন্য যথেষ্ট, আর তিনি কতই না উত্তম কর্মবিধায়ক</p>
-    </div>
-);
+import {useEffect, useState} from "react";
+
+const URL = "https://raw.githubusercontent.com/Deenipedia/dhikr/master/data.json";
+
+const Dhikr = () => {
+    const [dhikr, setDhikr] = useState({});
+
+    useEffect(() => {
+        fetch(URL)
+            .then(res => res.json())
+            .then(list => list[Math.floor(Math.random() * list.length)])
+            .then(setDhikr)
+    }, []);
+
+    console.log(dhikr);
+
+    return (
+        <div className="mt-content">
+            <h4>{dhikr.ARABIC}</h4>
+            <h1>{dhikr.BANGLA_UCCHARON}</h1>
+            <p>{dhikr.BANGLA_ORTHO}</p>
+        </div>
+    );
+};
 
 
 export default Dhikr;
