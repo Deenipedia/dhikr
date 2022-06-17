@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import {useState} from "react";
 
-const HTTP_REGEX = new RegExp("https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)");
-const NON_HTTP_REGEX = new RegExp("[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)");
+const HTTP_REGEX = new RegExp("http(s)?://([a-z|0-9].*)[a-z|0-9]\\.[a-z|0-9]+.*");
+const NON_HTTP_REGEX = new RegExp("([a-z|0-9]*\\.*)[a-z|0-9]\\.[a-z|0-9]+.*");
 
 
 const SearchBox = () => {
@@ -24,6 +24,7 @@ const SearchBox = () => {
         className="search-ic"
         autoFocus={true}
         value={value}
+        placeholder="Search Google or Type a URL"
         onInput={event => setValue(event.target.value)}
         onKeyUp={({code}) => code === 'Enter' && goToUrl()}/>;
 };

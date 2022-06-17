@@ -2,10 +2,10 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 
 const location = {
-    latitute: '23',
-    longitute: '90'
+    latitute: '23.707',
+    longitute: '90.415'
 };
-const url = `http://api.aladhan.com/v1/timings/1398332113?latitude=${location.latitute}&longitude=${location.longitute}&method=2`
+const url = `http://api.aladhan.com/v1/timings/1398332113?latitude=${location.latitute}&longitude=${location.longitute}&method=4`
 
 const hiddenTimes = ['Imsak', 'Midnight'];
 
@@ -27,7 +27,7 @@ const NamazTimes = () => {
         post[roundedTime - 1] =
             <li key={name}>
                 <b>{name}</b> {hour > 12 ? (hour - 12) + ":" + minute : hour + ":" + minute}
-                <apm>{hour > 12 ? "pm" : "am"}</apm>
+                <span>{hour > 12 ? "pm" : "am"}</span>
             </li>;
     };
 

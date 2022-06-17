@@ -318,6 +318,7 @@ apm
   max-width: 90%;
   text-align: center;
   overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: .3vw;
 }
 .tab-holder:hover
@@ -326,7 +327,9 @@ apm
   border-radius: 12px;
   cursor: pointer;
 }
-
+input::-webkit-input-placeholder {
+  opacity: 0.5;
+}
 .tab-edit-ic
 {
   background-color: rgba(161, 161, 161, 0.85);
