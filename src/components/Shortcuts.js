@@ -1,6 +1,6 @@
 const Shortcuts = () => {
     let shortCuts = []
-    for (let i = 0; i < 8; i++) shortCuts.push(
+    for (let i = 0; i < 10; i++) shortCuts.push(
         <div className="tab-holder">
             <div className="tab-edit-ic">
                 <svg height="20" viewBox="0 0 11 45" fill="none" xmlns="http://www.w3.org/2000/svg">
