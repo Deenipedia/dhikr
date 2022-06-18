@@ -1,12 +1,6 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-
-/*const location = {
-    latitute: '23.811',
-    longitute: '90.407'
-};*/
-//const url = `http://api.aladhan.com/v1/timings/1398332113?latitude=${location.latitute}&longitude=${location.longitute}&method=1`
-const url = ` http://api.aladhan.com/v1/timingsByCity?city=Dhaka&country=Bangladesh&method=1`
+import {getFormattedTime} from "../Utils";
 
 const hiddenTimes = ['Imsak', 'Midnight'];
 
@@ -14,21 +8,21 @@ const NamazTimes = () => {
     const [data, setData] = useState({});
 
     useEffect(() => {
-        axios(url).then(({data})=> setData(data))
+        navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude}}) =>
+            axios(`http://api.aladhan.com/v1/timings?method=1&school=1&latitude=${latitude}&longitude=${longitude}`)
+                .then(({data}) => setData(data)))
     }, [])
 
     const post = [];
-    for (let i = 0; i < 24; i++) {
-        post[i] = <li key={i}></li>
-    }
+    for (let i = 0; i < 24; i++) post[i] = <li key={i}></li>
 
     const addNamazDescription = (name, time) => {
         const [hour, minute] = time.split(":").map(x => parseInt(x));
         const roundedTime = hour + Math.round(minute / 60);
         post[roundedTime - 1] =
             <li key={name}>
-                <b>{name}</b> {hour > 12 ? (hour - 12) + ":" + minute : hour + ":" + minute}
-                <span>{hour > 12 ? "pm" : "am"}</span>
+                <b>{name}</b> {getFormattedTime(hour, minute)}
+                <span> {hour > 12 ? "pm" : "am"}</span>
             </li>;
     };
 
@@ -42,7 +36,9 @@ const NamazTimes = () => {
             .forEach(([name, time]) => addNamazDescription(name, time));
     }
 
-    return <div className="ll-clock-holder"><h4>Namaz Times</h4><ul>{post}</ul></div>;
+    return <div className="ll-clock-holder"><h4>Namaz Times</h4>
+        <ul>{post}</ul>
+    </div>;
 };
 
 
