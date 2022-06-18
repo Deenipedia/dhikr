@@ -3,8 +3,6 @@ import {useEffect, useState} from "react";
 
 const shorten = text => text.length > 14 ? text.slice(0, 12) + '...' : text
 
-const FAV_ICON = "chrome://favicon/https://google.com"
-
 const Shortcuts = () => {
     const [topSites, setTopSites] = useState([]);
 
@@ -21,7 +19,7 @@ const Shortcuts = () => {
                     <rect x="0.201172" y="34.0077" width="10" height="10" rx="5" fill="white"/>
                 </svg>
             </div>
-            <div className="tab-content"><img src={FAV_ICON}/></div>
+            <div className="tab-content"><img src={`chrome://favicon/${site.url}`} alt="icon"/></div>
             <p>{shorten(site.title)}</p>
         </a>
     );
@@ -37,6 +35,10 @@ const Shortcuts = () => {
             </div>
             <div className="tab-content">+</div>
             <p>Add More</p></div>
+    } else {
+        /*shortCuts.push(<a key="koise tore" className="tab-holder" href="#">
+            <div className="tab-content"><img src={FAV_ICON} alt="icon"/></div>
+        </a>)*/
     }
 
     return <div className="mid-quick-tab">{shortCuts}</div>;

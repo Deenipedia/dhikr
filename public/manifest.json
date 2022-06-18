@@ -2,22 +2,21 @@
   "name": "Dhikr Chrome Extension",
   "description": "Daily Dhikr",
   "version": "1.0",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "chrome_url_overrides":{
     "newtab":"index.html"
   },
+  "browser_action":{
+    "default_icon": "dhikr_128x128.png"
+  },
   "permissions": [
     "topSites",
-    "chrome://favicon"
+    "chrome://favicon/"
   ],
-  "icons": {
-    "16": "logo192.png",
-    "48": "logo192.png",
-    "128": "logo192.png"
+  "icons":{
+    "16":"dhikr_16x16.png",
+    "48":"dhikr_64x64.png",
+    "128":"dhikr_128x128.png"
   },
-  "content_security_policy": {
-    "script-src": "self",
-    "object-src": "self",
-    "img-src": "self"
-  }
+  "content_security_policy": "script-src 'self';object-src 'self';img-src 'self' data: chrome://favicon"
 }
