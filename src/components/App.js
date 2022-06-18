@@ -1,7 +1,7 @@
 import './App.css';
-import Clock from "./components/Clock";
-import Quiz from "./components/Quiz";
-import SearchPanel from "./components/SearchPanel";
+import Clock from "./Clock";
+import Quiz from "./Quiz";
+import SearchPanel from "./SearchPanel";
 
 
 function App() {
