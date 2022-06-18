@@ -1,11 +1,12 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 
-const location = {
-    latitute: '23.707',
-    longitute: '90.415'
-};
-const url = `http://api.aladhan.com/v1/timings/1398332113?latitude=${location.latitute}&longitude=${location.longitute}&method=4`
+/*const location = {
+    latitute: '23.811',
+    longitute: '90.407'
+};*/
+//const url = `http://api.aladhan.com/v1/timings/1398332113?latitude=${location.latitute}&longitude=${location.longitute}&method=1`
+const url = ` http://api.aladhan.com/v1/timingsByCity?city=Dhaka&country=Bangladesh&method=1`
 
 const hiddenTimes = ['Imsak', 'Midnight'];
 
@@ -45,4 +46,4 @@ const NamazTimes = () => {
 };
 
 
-export default NamazTimes
+export default NamazTimes;
