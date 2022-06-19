@@ -2,12 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App';
+import mockChrome from "./MockChrome";
+import {ChromeContext} from "./Contexts";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const chrome = window.chrome.topSites ? window.chrome : mockChrome;
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <ChromeContext.Provider value={chrome}>
+            <App/>
+        </ChromeContext.Provider>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
