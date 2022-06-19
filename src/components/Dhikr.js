@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const URL = "https://raw.githubusercontent.com/Deenipedia/dhikr/master/data.json";
+const URL = "https://raw.githubusercontent.com/NHSanto/dhikr/main/public/data.json";
 
 const Dhikr = () => {
     const [dhikr, setDhikr] = useState();

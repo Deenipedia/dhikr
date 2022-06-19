@@ -11,7 +11,8 @@
   },
   "permissions": [
     "topSites",
-    "chrome://favicon/"
+    "chrome://favicon/",
+    "storage"
   ],
   "icons":{
     "16":"dhikr_16x16.png",
