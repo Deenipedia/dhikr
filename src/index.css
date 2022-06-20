@@ -426,6 +426,7 @@ input::-webkit-input-placeholder {
   flex: auto;
   /*text-align: justify;*/
   margin-right: 10px;
+  font-size: 1.2vw;
 }
 .rq-content-text::-webkit-scrollbar {
   width:5px;
