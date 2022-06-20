@@ -2,6 +2,8 @@ import {useContext, useEffect, useState} from "react";
 import {ChromeContext} from "../Contexts";
 
 const shorten = text => text.length > 14 ? text.slice(0, 12) + '...' : text
+const favUrl = site => site.hasOwnProperty('favIconUrl') ? site.favIconUrl : 'chrome://favicon/' + site.url
+console.log(favUrl);
 
 const Shortcuts = () => {
     const chrome = useContext(ChromeContext);
@@ -20,7 +22,7 @@ const Shortcuts = () => {
                         <rect x="0.201172" y="34.0077" width="10" height="10" rx="5" fill="white"/>
                     </svg>
                 </div>
-                <div className="tab-content"><img src={site.favIconUrl} alt="icon"/></div>
+                <div className="tab-content"><img src={favUrl(site)} alt="icon"/></div>
                 <p>{shorten(site.title)}</p>
             </a>;
         }
