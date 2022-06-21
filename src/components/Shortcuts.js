@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from "react";
 import {ChromeContext} from "../Contexts";
 
 const shorten = text => text.length > 14 ? text.slice(0, 12) + '...' : text
-const favUrl = site => site.hasOwnProperty('favIconUrl') ? site.favIconUrl : 'chrome://favicon/' + site.url
+const favUrl = site => process.env.REACT_APP_FAVICON_PREFIX + site.url
 
 const Shortcuts = () => {
     const chrome = useContext(ChromeContext);

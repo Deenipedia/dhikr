@@ -17,11 +17,11 @@ const chrome = {
     tabs: {update: ({url}) => window.location.href = url},
     topSites: {
         get: (fn) => fn([
-            {title: 'Facebook', url: 'https://facebook.com', favIconUrl: 'facebook_16x16.png'},
-            {title: 'Google', url: 'https://github.com', favIconUrl: 'github_16x16.png'},
-            {title: 'YouTube', url: 'https://youtube.com', favIconUrl: 'youtube_16x16.png'},
-            {title: '(120) Inbox', url: 'https://gmail.com', favIconUrl: 'google_16x16.png'},
-            {title: '(2) WhatsApp', url: 'https://whatsapp.com', favIconUrl: 'whatsapp_16x16.png'},
+            {title: 'Facebook', url: 'https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico'},
+            {title: 'Google', url: 'https://github.com'},
+            {title: 'YouTube', url: 'https://youtube.com'},
+            {title: '(120) Inbox', url: 'https://gmail.com'},
+            {title: '(2) WhatsApp', url: 'https://whatsapp.com'},
         ])
     }
 };
