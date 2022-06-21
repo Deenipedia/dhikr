@@ -1,0 +1,47 @@
+.NamazTimes
+{
+    display: flex;
+    height: calc(100% - 2px * 2);
+    flex-direction: row;
+    font-size: clamp(5px, 2.45vh,18px);
+    align-items: flex-end;
+    padding: 2px;
+}
+.NamazTimes ul li
+{
+    padding: .30vh 0;
+    font-family: 'Public Sans', sans-serif;
+    position: relative;
+    line-height: 3vh;
+    height: 3vh;
+}
+.NamazTimes ul li:after
+{
+    content: "-";
+    color: rgba(0, 0, 0, 0.30);
+}
+
+.NamazTimes b
+{
+    color:#FF5F85;
+}
+.NamazTimes
+{
+    border-right: 1px solid black;
+    text-align: right;
+    min-width: 22vh;
+    justify-content: flex-end;
+    position: relative;
+}
+.NamazTimes h4
+{
+    position: absolute;
+    top: 5vh;
+    left: calc(50% - (10px - 1px - 2px)) ;
+    text-align: center;
+    max-width: calc(100% - 10px);
+    transform: translateX(-50%);
+    font-size: clamp(12px, 3.5vh, 18px) ;
+    color: rgba(0, 0, 0, 0.31);
+}
+

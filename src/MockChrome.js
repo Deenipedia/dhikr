@@ -18,10 +18,10 @@ const chrome = {
     topSites: {
         get: (fn) => fn([
             {title: 'Facebook', url: 'https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico'},
-            {title: 'Google', url: 'https://github.com'},
-            {title: 'YouTube', url: 'https://youtube.com'},
-            {title: '(120) Inbox', url: 'https://gmail.com'},
-            {title: '(2) WhatsApp', url: 'https://whatsapp.com'},
+            {title: 'LinkedIn', url: 'https://static-exp2.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca'},
+            {title: 'YouTube', url: 'https://www.youtube.com/s/desktop/55d33fd3/img/favicon.ico'},
+            {title: 'Twitter', url: 'https://abs.twimg.com/responsive-web/client-web/icon-svg.168b89d8.svg'},
+            {title: 'Drive', url: 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png'},
         ])
     }
 };
