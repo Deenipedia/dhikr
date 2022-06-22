@@ -1,4 +1,3 @@
-import axios from "axios";
 import {useContext, useEffect, useState} from "react";
 import {getFormattedTime} from "../../Utils";
 import {ChromeContext} from "../../Contexts";
@@ -12,7 +11,7 @@ const retrieveNamazTimes = (chrome, setData) => {
         .then(({
                    latitude,
                    longitude
-               }) => axios(`http://api.aladhan.com/v1/timings?method=1&school=1&latitude=${latitude}&longitude=${longitude}`))
+               }) => fetch(`http://api.aladhan.com/v1/timings?method=1&school=1&latitude=${latitude}&longitude=${longitude}`))
         .then(({data}) => chrome.storage.local.set({[new Date().getTime()]: data}, () => setData(data)))
 };
 
