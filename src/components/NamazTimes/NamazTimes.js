@@ -3,7 +3,7 @@ import {getFormattedTime} from "../../Utils";
 import {ChromeContext} from "../../Contexts";
 import "./NamazTimes.css";
 
-const hiddenTimes = ['Imsak', 'Midnight'];
+const hiddenTimes = ['Imsak', 'Midnight','Sunset'];
 
 const retrieveNamazTimes = (chrome, setData) => {
     new Promise((resolve) => chrome.storage.local.clear(resolve))
