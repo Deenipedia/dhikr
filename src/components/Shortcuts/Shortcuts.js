@@ -14,7 +14,7 @@ const Shortcuts = () => {
     }, [chrome])
 
     const shortCuts = topSites.map((site) => {
-        return <a className="Shortcuts-Site" href={site.url}>
+        return <a key={site.url} className="Shortcuts-Site" href={site.url}>
                 <div className="Shortcuts-Site-Box">
                     <svg height="20" viewBox="0 0 11 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.201172" y="0.00769043" width="10" height="10" rx="5" fill="white"/>
