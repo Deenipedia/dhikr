@@ -3,8 +3,7 @@ import {getFormattedTime} from "../../Utils";
 import {ChromeContext} from "../../Contexts";
 import "./NamazTimes.css";
 
-const hiddenTimes = ['Imsak', 'Midnight','Sunset'];
-
+const visibleTimes = ['Fajr', 'Sunrise','Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 const retrieveNamazTimes = (chrome, setData) => {
     new Promise((resolve) => chrome.storage.local.clear(resolve))
         .then(_ => new Promise((resolve) => navigator.geolocation.getCurrentPosition(({coords}) => resolve(coords))))
@@ -12,6 +11,7 @@ const retrieveNamazTimes = (chrome, setData) => {
                    latitude,
                    longitude
                }) => fetch(`http://api.aladhan.com/v1/timings?method=1&school=1&latitude=${latitude}&longitude=${longitude}`))
+        .then((response) => response.json())
         .then(({data}) => chrome.storage.local.set({[new Date().getTime()]: data}, () => setData(data)))
 };
 
@@ -42,12 +42,12 @@ const NamazTimes = () => {
             </li>;
     };
 
-    const timings = data.data?.timings;
+    const timings = data.timings;
 
     if (timings) {
         Object
             .keys(timings)
-            .filter(key => hiddenTimes.every(time => time !== key))
+            .filter(key => visibleTimes.some(time => time === key))
             .map(key => [key, timings[key]])
             .forEach(([name, time]) => addNamazDescription(name, time));
     }
