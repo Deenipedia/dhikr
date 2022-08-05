@@ -1,0 +1,92 @@
+.clock-anm-holder{
+    position: absolute;
+    top: 0;
+    left: -1vw;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.progress {
+    stroke-dasharray: 10000;
+    stroke-dashoffset: -231;
+    opacity: 0;
+    animation: example cubic-bezier(0.64, -0.02, 0, 0.99) 2s;
+}
+.min_anm, .hour_anm {
+    position: absolute;
+    top: 1%;
+    left: 45%;
+    animation: minAnm cubic-bezier(0.64, -0.02, 0, 0.99) 2s;
+    opacity: 0;
+}
+.min_anm {
+    animation: minAnm cubic-bezier(0.64, -0.02, 0, 0.99) 2s;
+}
+
+.hour_anm {
+    animation: hurAnm cubic-bezier(0.64, -0.02, 0, 0.99) 2s;
+}
+@keyframes minAnm {
+    from {
+        transform: rotate(0turn);
+        opacity: 1;
+
+    }
+    to {
+        transform: rotate(6turn);
+        opacity: 0;
+
+    }
+}
+
+@keyframes hurAnm {
+    from {
+        transform: rotate(0turn);
+        opacity: 1;
+    }
+    to {
+        transform: rotate(1turn);
+        opacity: 0;
+    }
+}
+
+
+@keyframes example {
+    0% {
+        stroke-dashoffset: -10000;
+        opacity: 1;
+    }
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        stroke-dashoffset: -231;
+    }
+}
+@-webkit-keyframes rotation {
+    from {
+
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@keyframes time-out {
+    from {
+        width: 1%;
+        background-color: #17A963;
+    }
+    to {
+        width: 100%;
+        background-color: #a91751;
+    }
+}
