@@ -1,25 +1,16 @@
-.Clock
+.left-clock-holder
 {
-    /*background-color: rgba(95, 158, 160, 0.12);*/
-    /*margin:0 20px;*/
-    /*flex: auto;*/
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    max-height: 100vh;
-    position: sticky;
-    top: 0;
-}
-.Clock-left-holder {
     display: flex;
     height: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
-.Clock-left-holder ul
+.left-clock-holder ul
 {
     list-style: none;
     margin: 2vh 0;
+}
+.left-clock-holder{
+    animation: fade_in cubic-bezier(0.64, -0.02, 0, 0.99) 2.2s;
 }

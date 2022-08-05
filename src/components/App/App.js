@@ -2,12 +2,13 @@ import './App.css';
 import Clock from "../Clock/Clock";
 import Hadith from "../Hadith/Hadith";
 import SearchPanel from "../SearchPanel/SearchPanel";
+import AnimatedClock from "../AnimatedClock/AnimatedClock";
 
 
 function App() {
     return (
         <div className="App">
-            <Clock/>
+            <AnimatedClock/>
             <SearchPanel/>
             <Hadith/>
         </div>

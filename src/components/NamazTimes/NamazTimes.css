@@ -1,4 +1,5 @@
-.NamazTimes
+
+.ll-clock-holder, .lr-clock-holder
 {
     display: flex;
     height: calc(100% - 2px * 2);
@@ -7,7 +8,8 @@
     align-items: flex-end;
     padding: 2px;
 }
-.NamazTimes ul li
+.ll-clock-holder ul li,
+.lr-clock-holder ul li
 {
     padding: .30vh 0;
     font-family: 'Public Sans', sans-serif;
@@ -15,17 +17,19 @@
     line-height: 3vh;
     height: 3vh;
 }
-.NamazTimes ul li:after
+.ll-clock-holder ul li:after
 {
     content: "-";
     color: rgba(0, 0, 0, 0.30);
 }
 
-.NamazTimes b
+.ll-clock-holder b
 {
     color:#FF5F85;
 }
-.NamazTimes
+
+
+.ll-clock-holder
 {
     border-right: 1px solid black;
     text-align: right;
@@ -33,7 +37,7 @@
     justify-content: flex-end;
     position: relative;
 }
-.NamazTimes h4
+.ll-clock-holder h4
 {
     position: absolute;
     top: 5vh;
@@ -45,3 +49,52 @@
     color: rgba(0, 0, 0, 0.31);
 }
 
+.lr-clock-holder
+{
+    min-width: 13vh;
+}
+.lr-clock-holder ul li
+{
+    padding-left: 2.7vh;
+    height: 3vh;
+}
+.lr-clock-holder ul li:before
+{
+    content: "";
+    width: 2vh;
+    height: 1.2vh;
+    line-height: 3vh;
+
+
+}
+
+.lr-clock-holder ul .active-time:before
+{
+    content: "";
+    position: absolute;
+    top: 52.5%;
+    transform: translateY(-50%);
+    background-color: #FF003D;
+    border-radius: 0 1vh 1vh 0;
+    left:-2px;
+}
+
+
+
+@keyframes fade_in {
+    0%{
+
+        opacity: 0;
+
+    }
+    50%{
+
+        opacity: 0;
+
+    }
+    100% {
+
+        opacity: 1;
+
+    }
+}

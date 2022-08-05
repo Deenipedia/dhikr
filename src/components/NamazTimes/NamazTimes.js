@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from "react";
 import {getFormattedTime} from "../../Utils";
 import {ChromeContext} from "../../Contexts";
 import "./NamazTimes.css";
-
+import "../Clock/Clock.css"
 const visibleTimes = ['Fajr', 'Sunrise','Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 const retrieveNamazTimes = (chrome, setData) => {
     new Promise((resolve) => chrome.storage.local.clear(resolve))
@@ -52,7 +52,8 @@ const NamazTimes = () => {
             .forEach(([name, time]) => addNamazDescription(name, time));
     }
 
-    return <div className="NamazTimes"><h4>Namaz Times</h4>
+    return <div className="ll-clock-holder">
+        <h4>Namaz Times</h4>
         <ul>{post}</ul>
     </div>;
 };
