@@ -1,8 +1,7 @@
 import './App.css';
-import Clock from "../Clock/Clock";
-import Hadith from "../Hadith/Hadith";
 import SearchPanel from "../SearchPanel/SearchPanel";
 import AnimatedClock from "../AnimatedClock/AnimatedClock";
+import QuizPage from "../DailyQuiz/QuizPage";
 
 
 function App() {
@@ -10,7 +9,9 @@ function App() {
         <div className="App">
             <AnimatedClock/>
             <SearchPanel/>
-            <Hadith/>
+            {/*<Hadith/>*/}
+            <QuizPage/>
+
         </div>
     );
 }
