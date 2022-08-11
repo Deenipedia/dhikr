@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import "./Dhikr.css"
 
-const URL = "https://raw.githubusercontent.com/NHSanto/dhikr/main/public/data.json";
+const URL = "https://raw.githubusercontent.com/NHSanto/dhikr/main/public/dhikr.json";
 
 const Dhikr = () => {
     const [dhikr, setDhikr] = useState();
