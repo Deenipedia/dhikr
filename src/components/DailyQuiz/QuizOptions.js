@@ -1,19 +1,30 @@
-import React from "react";
+import React, {useState} from "react";
 import "./QuizOptions.css"
-function QuizOptions({answers}){
-    console.log(answers)
-    const correctAnswer = answers[0];
-    const checkAnswer = (answer) => {
-        if (answer === correctAnswer) alert("Kupaisos to");
-        else alert("hala bekkol");
+
+const yellow = '#ffd42a47';
+
+function QuizOptions({correctAnswer, answers}) {
+    const [selected, setSelected] = useState();
+
+    const getBackgroundColor = answer => {
+        if (!selected) return yellow;
+        if (answer === correctAnswer) return 'green';
+        if (answer === selected) return 'red';
+        return yellow;
     }
 
-    return(
-        <div className= "quiz-options">
-            {answers
-                .sort( ()=>Math.random()-0.5 )
-                .map(ans => <button onClick={() => checkAnswer(ans)}>{ans}</button>)}
+    return (
+        <div className="quiz-options">
+            {answers.map((ans) =>
+                <button
+                    key={ans}
+                    style={{backgroundColor: getBackgroundColor(ans)}}
+                    onClick={() => setSelected(ans)}>
+                    {ans}
+                </button>
+            )}
         </div>
     )
 }
+
 export default QuizOptions

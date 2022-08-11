@@ -1,8 +1,0 @@
-.quiz-question
-{
-    display: flex;
-    flex: auto;
-    justify-content: center;
-    flex-flow: column;
-    max-height: 250px;
-}

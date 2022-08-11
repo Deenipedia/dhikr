@@ -26,3 +26,12 @@
     border-radius:5px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
+
+.quiz-question
+{
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    flex-flow: column;
+    max-height: 250px;
+}
