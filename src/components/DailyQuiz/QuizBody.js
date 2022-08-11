@@ -1,5 +1,4 @@
 import React from "react";
-import QuizeQuestion from "./QuizQuestion";
 import QuizOptions from "./QuizOptions";
 import "./QuizBody.css"
 
@@ -208,32 +207,31 @@ const Data = [
 
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
-const getRandomElems = () => {
+const getQuizData = () => {
     const randSet = new Set();
     while (randSet.size < 4) {
         randSet.add(getRandomNum(0, 199));
     }
-    const randElems = Array.from(randSet).map(x => Data.at(x));
-    return randElems;
-}
+    const randNumArray = Array.from(randSet);
+    const randElems = randNumArray.map(i => Data.at(i));
+    const sortedElems = randNumArray.sort().map(i => Data.at(i));
+    return [randElems[0], sortedElems];
+};
 
 function QuizBody() {
-    const randElems = getRandomElems();
-
-    const isArabic = !!getRandomNum(0, 1);
-    let question, answers;
-    if (isArabic) {
-        question = randElems[0][0];
-        answers = randElems.map(elem => elem[1]);
-    } else {
-        question = randElems[0][1];
-        answers = randElems.map(elem => elem[0]);
-    }
+    const [elem, sortedElems] = getQuizData();
+    const questionIndex = getRandomNum(0, 1);
+    const answerIndex = +!questionIndex;
 
     return (
         <div className="quiz-Body">
-            <QuizeQuestion question={question}/>
-            <QuizOptions answers={answers}/>
+            <div className="quiz-question">
+                <h4>{elem[questionIndex]}</h4>
+            </div>
+            <QuizOptions
+                answers={sortedElems.map(elem => elem[answerIndex])}
+                correctAnswer={elem[answerIndex]}
+            />
         </div>
     )
 }
