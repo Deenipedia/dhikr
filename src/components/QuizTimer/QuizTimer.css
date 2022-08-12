@@ -28,6 +28,7 @@
     font-size: 20px;
     color: #fff;
 }
+
 .quiz-bar
 {
     position: absolute;
@@ -38,15 +39,24 @@
     background-color: #0000001c;
     border-radius: 4px;
 }
+
+@keyframes time-out {
+    from {
+        width: 1%;
+        background-color: #17A963;
+    }
+    to {
+        width: 100%;
+        background-color: #a91751;
+    }
+}
+
 .quiz-bar_progress
 {
     position: absolute;
     bottom:0;
     left:0;
-    width: 40%;
     height: 5px;
-    background-color: #17A963;
     border-radius: 4px;
-
-    animation: time-out linear 5s;
 }
+

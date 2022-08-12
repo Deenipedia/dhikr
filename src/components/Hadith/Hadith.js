@@ -1,12 +1,10 @@
 import {useEffect, useState} from "react";
 import "./Hadith.css";
 
-const URL = "https://raw.githubusercontent.com/NHSanto/dhikr/main/public/hadith.json";
-
-const Hadith = () => {
+const Hadith = ({showQuiz}) => {
     const [hadith, setHadith] = useState([]);
     useEffect(() => {
-        fetch(URL)
+        fetch("/hadith.json")
             .then(res => res.json())
             .then(list => {
                 const listLength = Object.keys(list).length - 1;
@@ -22,7 +20,7 @@ const Hadith = () => {
                 <div className="Hadith-right-content-text">
                     <div dangerouslySetInnerHTML={{__html: hadith}}/>
                 </div>
-                <h6>Learn New Words</h6>
+                <h6 onClick={showQuiz}>Learn New Words</h6>
             </div>
         </div>
     )

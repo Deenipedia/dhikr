@@ -1,17 +1,20 @@
+import {useState} from 'react';
 import './App.css';
 import SearchPanel from "../SearchPanel/SearchPanel";
 import AnimatedClock from "../AnimatedClock/AnimatedClock";
-import QuizPage from "../DailyQuiz/QuizPage";
-
+import Hadith from "../Hadith/Hadith";
+import QuizPage from "../QuizPage/QuizPage";
 
 function App() {
-    return (
+   const [showHadith, setShowHadith] = useState(true);
+   return (
         <div className="App">
             <AnimatedClock/>
-            <SearchPanel/>
-            {/*<Hadith/>*/}
-            <QuizPage/>
-
+            <SearchPanel/> 
+            {showHadith ? 
+                <Hadith showQuiz={() => setShowHadith(false)} /> : 
+                <QuizPage showHadith={() => setShowHadith(true)} />
+            }
         </div>
     );
 }

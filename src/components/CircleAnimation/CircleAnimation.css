@@ -80,13 +80,3 @@
     }
 }
 
-@keyframes time-out {
-    from {
-        width: 1%;
-        background-color: #17A963;
-    }
-    to {
-        width: 100%;
-        background-color: #a91751;
-    }
-}
