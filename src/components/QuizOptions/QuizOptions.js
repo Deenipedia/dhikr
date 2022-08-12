@@ -18,8 +18,8 @@ function QuizOptions({correctAnswer, answers, state, setState}) {
 
     const getBackgroundColor = answer => {
         if (state === timerRunning) return yellow;
-        if (answer === correctAnswer) return 'green';
-        if (answer === selected) return 'red'; 
+        if (answer === correctAnswer) return '#17A963';
+        if (answer === selected) return '#a91751'; 
         return yellow;
     }
 

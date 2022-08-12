@@ -1,7 +1,7 @@
-import {useState, useEffect, default as React} from "react";
+import {useState, useEffect, useRef, default as React} from "react";
 import QuizTimer from "../QuizTimer/QuizTimer";
 import QuizBody from "../QuizBody/QuizBody";
-import {QuizState, useForceUpdate} from "../../Utils";
+import {QuizState} from "../../Utils";
 import "./QuizPage.css"
 
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
@@ -28,26 +28,30 @@ const Quiz = ({quiz, showHadith, trigger}) => {
     const {timerRunning, timerEnded} = QuizState;
 
     const [state, setState] = useState(timerRunning);
-    const forceUpdate = useForceUpdate();
-
-    let timer;
+    const timer = useRef();
 
     useEffect(() => {
-        if (state === timerRunning) { 
-            timer = setTimeout(() => setState(timerEnded), 5000);
-        }
-    }, [trigger]);
+        if (!state)
+            timer.current = setTimeout(() => setState(timerRunning), 1);
+        if (state === timerRunning) 
+            timer.current = setTimeout(() => setState(timerEnded), 5000);
+    }, [state]);
 
-    const _setState = state => {
-        if (timer) clearTimeout(timer);
-        setState(state);
+    const _setState = newState => {
+        if (timer.current) {
+            clearTimeout(timer.current);
+            timer.current = null;
+        }
+        if (state === timerRunning && newState === state) setState();
+        else setState(newState); 
     }
 
     const _trigger = () => {
         _setState(timerRunning);
         trigger();
-        forceUpdate();
     }
+
+    if (!state) return <></>;
 
     return (
         <div className= "right-quiz">

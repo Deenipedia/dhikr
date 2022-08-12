@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react";
+import React from "react";
 import {QuizState} from "../../Utils";
 import "./QuizTimer.css"
 
@@ -24,17 +24,6 @@ const getStyle = state => {
 
 function QuizTimer({state, trigger}){
     const style = getStyle(state);
-
-    const requestRef = useRef();
-
-    const animate = () => { 
-        requestRef.current = requestAnimationFrame(animate); 
-    } 
-
-    useEffect(() => { 
-        requestRef.current = requestAnimationFrame(animate); 
-        return () => cancelAnimationFrame(requestRef.current); 
-    }, []); 
 
     return(
         <div className= "quiz-header">
