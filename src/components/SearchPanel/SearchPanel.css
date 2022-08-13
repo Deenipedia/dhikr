@@ -58,11 +58,11 @@
 }
 
 
-.SearchPanel h1:before, .SearchPanel h1:after
+/*.SearchPanel h1:before, .SearchPanel h1:after
 {
     content: "'";
     color:  #ff00003d;
-}
+}*/
 
 .SearchPanel h1:after
 {

@@ -1,16 +1,16 @@
 .quiz-options
 {
-    border:  dashed 2px #1c1c1c;
+    border:  none 2px #1c1c1c;
     padding: 4px 8px;
     /*flex: auto;*/
     width: 100%;
-    min-height: 105px;
+    min-height: 100px;
     margin-top: 20px;
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: stretch;
     align-items: stretch;
 }
@@ -20,7 +20,7 @@
     box-shadow: none;
     background: #ffd42a47;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 50px;
     flex: auto;
     margin: 4px;
     /*max-width: 150px;*/
