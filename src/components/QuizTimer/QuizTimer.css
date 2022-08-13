@@ -1,7 +1,7 @@
 .quiz-header
 {
     width:calc(100% - 8*2) ;
-    border:  dashed 2px #1c1c1c;
+    border:  none 2px #1c1c1c;
     padding: 10px 8px;
     display: flex;
     position:absolute;

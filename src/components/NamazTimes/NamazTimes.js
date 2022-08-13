@@ -53,7 +53,7 @@ const NamazTimes = () => {
     }
 
     return <div className="ll-clock-holder">
-        <h4>Namaz Times</h4>
+        <h4><img src={"/dhikr_64x64.png"} alt={"Dhikr logo 64x64"}/></h4>
         <ul>{post}</ul>
     </div>;
 };
