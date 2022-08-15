@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/App/App';
-import mockChrome from "./MockChrome";
-import {ChromeContext} from "./Contexts";
+import App from './App/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const chrome = window.chrome.topSites ? window.chrome : mockChrome;
 
 root.render(
     <React.StrictMode>
-        <ChromeContext.Provider value={chrome}>
-            <App/>
-        </ChromeContext.Provider>
+        <App/>
     </React.StrictMode>
 );
 

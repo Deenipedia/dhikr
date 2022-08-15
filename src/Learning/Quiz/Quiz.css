@@ -1,0 +1,45 @@
+.Quiz {
+    margin-left: 3vw;
+    /* background-color: rgba(160, 130, 95, 0.14); */
+    flex: 25;
+    max-width: 450px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rq-content
+{
+    border: 1px solid #41B6BD;
+    border-radius: 12px;
+    width: calc(100% - 20px * 2);
+    height: calc(100% - 20px * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    min-width: 180px;
+    padding: 5px 10px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(134, 208, 173, 0.13);
+}
+.rq-content h6
+{
+    /*position: absolute;*/
+    /*bottom: 5%;*/
+    /*left: calc(50%) ;*/
+    text-align: center;
+    font-size: 16px;
+    max-width: calc(100% - 10px );
+    /*transform: translateX(-50%);*/
+    padding: 2px 10px;
+    border: dashed 1px rgba(58, 70, 198, 0.24);
+    border-radius: 8px;
+    background-color: rgba(0, 255, 21, 0.08);
+    cursor: pointer;
+    margin: 10px 0;
+}
