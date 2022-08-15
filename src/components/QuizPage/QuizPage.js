@@ -1,7 +1,5 @@
-import {useState, useEffect, useRef, default as React} from "react";
-import QuizTimer from "../QuizTimer/QuizTimer";
+import {useState, useEffect} from "react";
 import QuizBody from "../QuizBody/QuizBody";
-import {QuizState} from "../../Utils";
 import "./QuizPage.css"
 
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
@@ -24,48 +22,6 @@ const getQuiz = data => {
     };
 };
 
-const Quiz = ({quiz, showHadith, trigger}) => {
-    const {timerRunning, timerEnded} = QuizState;
-
-    const [state, setState] = useState(timerRunning);
-    const timer = useRef();
-
-    useEffect(() => {
-        if (!state)
-            timer.current = setTimeout(() => setState(timerRunning), 1);
-        if (state === timerRunning) 
-            timer.current = setTimeout(() => setState(timerEnded), 5000);
-    }, [state]);
-
-    const _setState = newState => {
-        if (timer.current) {
-            clearTimeout(timer.current);
-            timer.current = null;
-        }
-        if (state === timerRunning && newState === state) setState();
-        else setState(newState); 
-    }
-
-    const _trigger = () => {
-        _setState(timerRunning);
-        trigger();
-    }
-
-    if (!state) return <></>;
-
-    return (
-        <div className= "right-quiz">
-            <div className= "rq-content">
-                <QuizTimer 
-                    state={state} 
-                    trigger={_trigger} 
-                />
-                <QuizBody {...{quiz, showHadith, state, setState: _setState}} />
-            </div>
-        </div>
-    );
-}
-
 function QuizPage({showHadith}){
     const [data, setData] = useState([]);
     const [trigger, setTrigger] = useState(false);
@@ -77,7 +33,7 @@ function QuizPage({showHadith}){
     }, []);
 
     return data.length ? 
-        <Quiz 
+        <QuizBody
             trigger={() => setTrigger(!trigger)}
             quiz={getQuiz(data)} 
             showHadith={showHadith} 

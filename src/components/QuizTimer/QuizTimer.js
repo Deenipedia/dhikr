@@ -5,19 +5,16 @@ import "./QuizTimer.css"
 const timerRunningStyle = {animation: 'time-out linear 5s'};
 const correctlyAnsweredStyle = { width: '100%', backgroundColor: '#17A963'};
 const incorrectlyAnsweredStyle = { width: '100%', backgroundColor: '#a91751'};
-const timerEndedStyle = { width: '100%', backgroundColor: '#ffd42a47'};
 
-const {timerRunning, timerEnded, correctlyAnswered, incorrectlyAnswered} = QuizState;
+const {timerRunning, correctlyAnswered} = QuizState;
 
 const getStyle = state => {
     switch (state) {
         case timerRunning:
             return timerRunningStyle;
-        case timerEnded:
-            return timerEndedStyle;
         case correctlyAnswered:
             return correctlyAnsweredStyle;
-        case incorrectlyAnswered:
+        default:
             return incorrectlyAnsweredStyle;
     }
 }

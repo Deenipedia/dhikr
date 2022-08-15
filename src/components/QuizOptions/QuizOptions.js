@@ -6,8 +6,6 @@ const yellow = '#ffd42a47';
 const {timerRunning, correctlyAnswered, incorrectlyAnswered} = QuizState;
 
 function QuizOptions({correctAnswer, answers, state, setState}) {
-    console.log(state);
-
     const [selected, setSelected] = useState();
 
     const setAnsweredState = answer => {
@@ -25,9 +23,9 @@ function QuizOptions({correctAnswer, answers, state, setState}) {
 
     return (
         <div className="quiz-options">
-            {answers.map((ans) =>
+            {answers.map((ans, i) =>
                 <button
-                    key={ans}
+                    key={ans + i}
                     style={{backgroundColor: getBackgroundColor(ans)}}
                     onClick={() => state === timerRunning && setAnsweredState(ans)}>
                     {ans}
