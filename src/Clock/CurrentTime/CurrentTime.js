@@ -1,5 +1,5 @@
 import "./CurrentTime.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {getFormattedTime} from "../Utils";
 
 const getTimeCounter = () => {
@@ -15,7 +15,12 @@ const getTimeCounter = () => {
 
 const CurrentTime = () => {
     const [timeCounter, setTimeCounter] = useState(getTimeCounter());
-    setInterval(() => setTimeCounter(getTimeCounter()), 3000);
+
+    useEffect(() => {
+        const id = setInterval(() => setTimeCounter(getTimeCounter()), 3000);
+        return () => clearInterval(id);
+    }, []);
+
     return <div className="CurrentTime-holder">
         <ul>{timeCounter}</ul>
     </div>
