@@ -15,16 +15,13 @@ export const QuizState = {
 const mockChrome = {
     storage: {
         local: {
-            clear: fn => window.localStorage.clear() || fn(),
-            get: (_, fn) => {
-                const storage = {};
-                Object.keys(window.localStorage).forEach(key => storage[key] = JSON.parse(window.localStorage[key]))
-                fn(storage)
+            get: (key, fn) => {
+                const value = window.localStorage.getItem(key);
+                fn(value && JSON.parse(value))
             },
-            set: (data, fn) => {
-                const key = Object.keys(data)[0];
-                window.localStorage.setItem(key, JSON.stringify(data[key]));
-                fn();
+            set: (data, fn) =>{
+                Object.keys(data).forEach(key => window.localStorage.setItem(key, JSON.stringify(data[key])));
+                fn && fn();
             }
         }
     },
@@ -42,17 +39,17 @@ const mockChrome = {
 
 export const chrome = window.chrome.topSites ? window.chrome : mockChrome;
 
-// TODO: use this for storage everywhere
 export const useLocalStorage = (storageKey, fallbackState) => {
-    const [value, setValue] = useState(
-        JSON.parse(localStorage.getItem(storageKey)) ?? fallbackState
-    );
+    const [value, setValue] = useState(fallbackState);
+
+    const _setValue = value => chrome.storage.local.set({[storageKey]: value}, () => setValue(value));
 
     useEffect(() => {
-        localStorage.setItem(storageKey, JSON.stringify(value));
-    }, [value, storageKey]);
+        chrome.storage.local.get(storageKey, value => _setValue(value ?? fallbackState));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [storageKey, fallbackState]);
 
-    return [value, setValue];
+    return [value, _setValue];
 };
 
 export const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);

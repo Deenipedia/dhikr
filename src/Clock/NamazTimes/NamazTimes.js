@@ -1,30 +1,29 @@
 import "./NamazTimes.css";
 import {useEffect, useState} from "react";
-import {chrome, getFormattedTime} from "../../Utils";
+import {chrome, getFormattedTime, useLocalStorage} from "../../Utils";
 
 const visibleTimes = ['Fajr', 'Sunrise','Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+
 const retrieveNamazTimes = (setData) => {
-    new Promise((resolve) => chrome.storage.local.clear(resolve))
-        .then(_ => new Promise((resolve) => navigator.geolocation.getCurrentPosition(({coords}) => resolve(coords))))
-        .then(({
-                   latitude,
-                   longitude
-               }) => fetch(`http://api.aladhan.com/v1/timings?method=1&school=1&latitude=${latitude}&longitude=${longitude}`))
-        .then((response) => response.json())
-        .then(({data}) => chrome.storage.local.set({[new Date().getTime()]: data}, () => setData(data)))
+    new Promise((resolve) => navigator.geolocation.getCurrentPosition(({coords}) => resolve(coords)))
+        .then(({latitude, longitude}) => `method=1&school=1&latitude=${latitude}&longitude=${longitude}`)
+        .then(query => fetch(`http://api.aladhan.com/v1/timings?${query}`))
+        .then(response => response.json())
+        .then(({data}) => setData({...data, lastUpdated: new Date().getTime()}));
 };
 
 const NamazTimes = () => {
-    const [data, setData] = useState({});
+    const [apiData, setApiData] = useLocalStorage('namazTimes', null);
 
     useEffect(() => {
-        chrome.storage.local.get(null, data => {
-            const currentTime = new Date().getTime();
-            const keys = Object.keys(data).filter(time => time + 1000 * 60 * 60 > currentTime);
-            if (keys.length) setData(data[keys[0]])
-            else retrieveNamazTimes(setData);
-        });
-    }, [])
+        const currentTime = new Date().getTime();
+        if (!(apiData && apiData.lastUpdated + 1000 * 60 * 60 > currentTime))
+            retrieveNamazTimes(setApiData);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    if (!apiData)
+        return <></>;
 
     const post = [];
     for (let i = 0; i < 24; i++) post[i] = <li key={i}></li>
@@ -39,7 +38,7 @@ const NamazTimes = () => {
             </li>;
     };
 
-    const timings = data.timings;
+    const timings = apiData.timings;
 
     if (timings) {
         Object
