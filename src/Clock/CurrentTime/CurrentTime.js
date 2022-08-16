@@ -1,6 +1,6 @@
 import "./CurrentTime.css";
 import {useState} from "react";
-import {getFormattedTime} from "../../Utils";
+import {getFormattedTime} from "../Utils";
 
 const getTimeCounter = () => {
     const today = new Date();

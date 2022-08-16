@@ -1,9 +1,9 @@
-import {useState} from "react";
-import {QuizState} from "../../Utils";
 import "./QuizOptions.css"
+import {useState} from "react";
+import {State} from "../Utils";
 
 const yellow = '#ffd42a47';
-const {timerRunning, correctlyAnswered, incorrectlyAnswered} = QuizState;
+const {timerRunning, correctlyAnswered, incorrectlyAnswered} = State;
 
 function QuizOptions({correctAnswer, answers, state, setState}) {
     const [selected, setSelected] = useState();

@@ -1,17 +1,5 @@
 import {useEffect, useState} from "react";
 
-export const getFormattedTime = (hour, minute) => {
-    minute = minute < 10 ? "0" + minute : minute;
-    return hour > 12 ? (hour - 12) + ":" + minute : hour + ":" + minute;
-};
-
-export const QuizState = {
-    timerRunning: Symbol("timerRunning"),
-    timerEnded: Symbol("timerEnded"),
-    correctlyAnswered: Symbol("correctlyAnswered"),
-    incorrectlyAnswered: Symbol("incorrectlyAnswered")
-};
-
 const mockChrome = {
     storage: {
         local: {
@@ -51,5 +39,3 @@ export const useLocalStorage = (storageKey, fallbackState) => {
 
     return [value, _setValue];
 };
-
-export const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);

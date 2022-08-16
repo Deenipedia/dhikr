@@ -1,18 +1,8 @@
 import "./Hadith.css";
-import {useEffect, useState} from "react";
+import {useHadith} from "../Utils";
 
 const Hadith = ({showQuiz}) => {
-    const [hadith, setHadith] = useState([]);
-    useEffect(() => {
-        fetch("/hadith.json")
-            .then(res => res.json())
-            .then(list => {
-                const listLength = Object.keys(list).length - 1;
-                return list[Math.floor(Math.random() * listLength)]
-            })
-            .then(setHadith)
-
-    }, []);
+    const hadith = useHadith();
 
     return hadith && (
         <div className="Hadith">
@@ -24,7 +14,6 @@ const Hadith = ({showQuiz}) => {
             </div>
         </div>
     )
-
 };
 
 export default Hadith;

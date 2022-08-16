@@ -1,6 +1,7 @@
 import "./NamazTimes.css";
-import {useEffect, useState} from "react";
-import {chrome, getFormattedTime, useLocalStorage} from "../../Utils";
+import {useEffect} from "react";
+import {getFormattedTime} from "../Utils";
+import {useLocalStorage} from "../../Utils";
 
 const visibleTimes = ['Fajr', 'Sunrise','Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 
