@@ -1,24 +1,15 @@
 .Background
 {
-    position: absolute;
-    height: 60vw;
-    width: 60vw;
-    top: 10px;
-    /*left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
-    max-height: 80vh;
-    max-width: 80vh;
-    z-index: -1;
-    -webkit-animation: rotation 60s infinite linear;
+    animation: rotation 60s infinite linear;
 }
 
-@-webkit-keyframes rotation {
+@keyframes rotation {
     from {
 
-        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     to {
 
-        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
     }
 }

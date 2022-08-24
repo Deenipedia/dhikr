@@ -20,7 +20,7 @@ const SearchBox = () => {
     }
 
     return <input
-        className="SearchBox"
+        className="SearchBox relative w-full"
         autoFocus={true}
         value={value}
         placeholder="Search Google or Type a URL"

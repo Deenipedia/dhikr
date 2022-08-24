@@ -1,25 +1,3 @@
-.ClockPanel
-{
-    /*background-color: rgba(95, 158, 160, 0.12);*/
-    /*margin:0 20px;*/
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    max-height: 100vh;
-    position: sticky;
-    top: 0;
-}
-
-.ClockHolder
-{
-    display: flex;
-    height: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
 .ClockHolder ul
 {
     list-style: none;

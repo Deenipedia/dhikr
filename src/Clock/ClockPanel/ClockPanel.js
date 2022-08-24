@@ -5,9 +5,9 @@ import CurrentTime from "../CurrentTime/CurrentTime";
 
 function ClockPanel(){
     return(
-        <div className= "ClockPanel">
+        <div className= "ClockPanel flex flex-col justify-center max-h-screen sticky top-0">
             <ClockAnimation/>
-            <div className= "ClockHolder">
+            <div className= "ClockHolder flex h-full flex-row items-center justify-around">
                 <NamazTimes/>
                 <CurrentTime/>
             </div>
