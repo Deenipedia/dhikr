@@ -16,15 +16,12 @@ _So remember Me and I shall remember you; give thanks to Me and do not be ungrat
 ![Arabic Quiz](public/arabic_quiz.png)
 
 # Prerequisites
-1. Node.js version 14.20.0
-2. npm
-3. ReactJS
-
+1. Node.js ^14
 # How to run Dhikr
-1. ```git clone https://github.com/NHSanto/dhikr.git```
+1. `git clone https://github.com/NHSanto/dhikr.git`
 
 2. `npm i`
 3. `npm start`
 
 # Dhikr Installation
-Go to this [link](https://chrome.google.com/webstore/detail/dhikr-chrome-extension/alhhipkdolifadffnollpkijfpnlnfka/related?authuser=1) and install Dhikr as your chorme extension..
+Go to this [link](https://chrome.google.com/webstore/detail/dhikr-chrome-extension/alhhipkdolifadffnollpkijfpnlnfka/related?authuser=1) and install Dhikr as your chorme extension.
