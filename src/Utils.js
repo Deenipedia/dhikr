@@ -5,7 +5,7 @@ const mockChrome = {
         local: {
             get: (key, fn) => {
                 const value = window.localStorage.getItem(key);
-                fn(value && JSON.parse(value))
+                fn(value && {[key]: JSON.parse(value)})
             },
             set: (data, fn) =>{
                 Object.keys(data).forEach(key => window.localStorage.setItem(key, JSON.stringify(data[key])));
@@ -26,16 +26,18 @@ const mockChrome = {
 };
 
 export const chrome = window.chrome.topSites ? window.chrome : mockChrome;
-
-export const useLocalStorage = (storageKey, fallbackState) => {
-    const [value, setValue] = useState(fallbackState);
-
-    const _setValue = value => chrome.storage.local.set({[storageKey]: value}, () => setValue(value));
+export const useLocalStorage = (key, fallback) => {
+    const [value, setValue] = useState(fallback);
+    const [done, setDone] = useState(false);
 
     useEffect(() => {
-        chrome.storage.local.get(storageKey, value => _setValue(value ?? fallbackState));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [storageKey, fallbackState]);
+        chrome.storage.local.get(key, value => {
 
-    return [value, _setValue];
-};
+            setDone(true)
+            if(value!==null && value[key]!==null)
+                setValue(value[key])
+            })
+    }, []);
+    const saveValue = value => chrome.storage.local.set({[key]: value}, () => setValue(value));
+    return [value, saveValue,done];
+}

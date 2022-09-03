@@ -45,7 +45,7 @@ export const useQuiz = () => {
     const quiz = useRef(null);
 
     useEffect(() => {
-        fetch("/words.json")
+        fetch("/data/words.json")
             .then(res => res.json())
             .then(data => {
                 setData(data);
@@ -61,7 +61,7 @@ export const useQuiz = () => {
 export const useHadith = () => {
     const [hadith, setHadith] = useState([]);
     useEffect(() => {
-        fetch("/hadith.json")
+        fetch("/data/hadith.json")
             .then(res => res.json())
             .then(list => {
                 const listLength = Object.keys(list).length - 1;

@@ -1,13 +1,10 @@
-// import "./Dhikr.css"
 import {useEffect, useState} from "react";
-
-const URL = "https://raw.githubusercontent.com/NHSanto/dhikr/main/public/dhikr.json";
 
 const Dhikr = () => {
     const [dhikr, setDhikr] = useState();
 
     useEffect(() => {
-        fetch(URL)
+        fetch("/data/dhikr.json")
             .then(res => res.json())
             .then(list => list[Math.floor(Math.random() * list.length)])
             .then(setDhikr)

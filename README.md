@@ -11,9 +11,9 @@ _So remember Me and I shall remember you; give thanks to Me and do not be ungrat
 ### Read a Hadith, Learn a new word whenever you open a new tab
 
 
-![Hadith](public/hadith.png)
+![Hadith](public/screenshots/hadith.png)
 
-![Arabic Quiz](public/arabic_quiz.png)
+![Arabic Quiz](public/screenshots/arabic_quiz.png)
 
 # Prerequisites
 1. Node.js ^14
