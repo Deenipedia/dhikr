@@ -3,7 +3,7 @@
     font-family: 'Noto Sans Bengali', sans-serif;
 }
 
-.SearchPanel input
+/* .SearchPanel input
 {
     outline: none;
     box-shadow: none;
@@ -17,7 +17,7 @@
     overflow: hidden;
     backdrop-filter: blur(4px);
     font-size: large;
-}
+} */
 .SearchPanel input::-webkit-input-placeholder
 {
     font-weight: 150;

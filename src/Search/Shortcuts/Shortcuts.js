@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {chrome} from "../../Utils";
-import "./Shortcuts.css";
 
 const shorten = text => text.length > 14 ? text.slice(0, 12) + '...' : text
 const favUrl = site => process.env.REACT_APP_FAVICON_PREFIX + site.url

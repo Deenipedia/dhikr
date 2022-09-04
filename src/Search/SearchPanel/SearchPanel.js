@@ -1,4 +1,4 @@
-import "./SearchPanel.css";
+ import "./SearchPanel.css";
 import Background from "../Background/Background";
 import Dhikr from "../Dhikr/Dhikr";
 import SearchBox from "../SearchBox/SearchBox";
