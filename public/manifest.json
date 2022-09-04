@@ -11,13 +11,14 @@
   },
   "permissions": [
     "topSites",
-    "chrome://favicon/",
-    "storage"
+    "storage",
+    "chrome://favicon/"
   ],
   "icons":{
     "16":"assets/dhikr_16x16.png",
     "48":"assets/dhikr_64x64.png",
     "128":"assets/dhikr_128x128.png"
   },
-  "content_security_policy": "script-src 'self';object-src 'self';img-src 'self' data: chrome://favicon"
+  "content_security_policy": "script-src 'self';object-src 'self';"
 }
+

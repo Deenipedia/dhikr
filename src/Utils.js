@@ -25,6 +25,17 @@ const mockChrome = {
     }
 };
 
+// noinspection JSUnresolvedVariable
+const isFirefox = typeof InstallTrigger !== 'undefined';
+const browserSpecificPrefix = isFirefox ? "https://s2.googleusercontent.com/s2/favicons?domain=" : "chrome://favicon/";
+export const faviconPrefix = () => {
+    if (process.env.REACT_APP_PRODUCTION) {
+        return browserSpecificPrefix;
+    } else {
+        return "";
+    }
+};
+
 export const chrome = window.chrome.topSites ? window.chrome : mockChrome;
 export const useLocalStorage = (key, fallback) => {
     const [value, setValue] = useState(fallback);
@@ -41,3 +52,4 @@ export const useLocalStorage = (key, fallback) => {
     const saveValue = value => chrome.storage.local.set({[key]: value}, () => setValue(value));
     return [value, saveValue,done];
 }
+
