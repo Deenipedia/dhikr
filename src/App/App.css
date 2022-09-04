@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 *
-{
+/*{
   margin: 0;
   padding: 0;
-}
+}*/
 body
 {
   font-family: 'Lato', sans-serif;
 }
-.App
+/*.App
 {
   display: flex;
   flex-flow: row;
@@ -19,4 +19,4 @@ body
   padding:0 10px;
   max-width: 1920px;
   margin: 0 auto;
-}
+}*/

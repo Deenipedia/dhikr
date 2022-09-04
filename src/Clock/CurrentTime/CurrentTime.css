@@ -1,16 +1,16 @@
 .CurrentTime-holder
 {
-    display: flex;
-    height: calc(100% - 2px * 2);
-    flex-direction: row;
-    font-size: clamp(5px, 2.45vh,18px);
+   /* display: flex;
+    !*height: calc(100% - 2px * 2);*!
+    !*flex-direction: row;*!
+    !*font-size: clamp(5px, 2.45vh,18px);*!
     align-items: flex-end;
-    padding: 2px;
+    padding: 2px;*/
 }
 
 .CurrentTime-holder ul li
 {
-    padding: .30vh 0;
+    /*padding: .30vh 0;*/
     font-family: 'Public Sans', sans-serif;
     position: relative;
     line-height: 3vh;
@@ -18,7 +18,7 @@
 }
 .CurrentTime-holder
 {
-    min-width: 13vh;
+    min-width: 3vh;
 }
 .CurrentTime-holder ul li
 {

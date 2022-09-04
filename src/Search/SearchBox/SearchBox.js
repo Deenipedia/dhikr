@@ -28,7 +28,7 @@ const SearchBox = () => {
   
 <div className="flex-col items-center justify-center bg-white pt-5">
   
-  <div className="md:w-[450px] mx-auto mt-0 flex w-[92%] items-center rounded-full border hover:shadow-md">
+  <div className="md:w-[35vw] mx-auto mt-0 flex w-[92%] items-center rounded-full border hover:shadow-md">
 
 
     <div className="pl-5">
@@ -37,7 +37,7 @@ const SearchBox = () => {
       </svg>
     </div>
 
-    <input type="text" className="w-full bg-transparent rounded-full py-[14px] pl-4 outline-none"
+    <input type="text" className="w-[35vw] placeholder:text-[10px] md:placeholder:text-[15px] overflow-hidden bg-transparent rounded-full py-[14px] pl-4 outline-none"
     autoFocus={true}
     value={value}
     placeholder="Search Google or Type a URL"

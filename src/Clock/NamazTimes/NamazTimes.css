@@ -62,7 +62,7 @@
 {
     content: "";
     width: 2vh;
-    height: 1.2vh;
+    height: 2vh;
     line-height: 3vh;
 
 
@@ -70,13 +70,13 @@
 
 .lr-clock-holder ul .active-time:before
 {
-    content: "";
+    /*content: "";
     position: absolute;
     top: 52.5%;
     transform: translateY(-50%);
     background-color: #FF003D;
     border-radius: 0 1vh 1vh 0;
-    left:-2px;
+    left:-2px;*/
 }
 
 

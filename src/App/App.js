@@ -5,7 +5,7 @@ import Learning from "../Learning";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App flex flex-row min-h-[100vh] justify-between pt-0 pb-0 pl-[10px] pr-[10px] max-w-[1920px] mt-0 mb-0 ml-auto mr-auto overflow-hidden">
             <Clock/>
             <Search/>
             <Learning/>

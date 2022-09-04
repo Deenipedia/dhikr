@@ -9,7 +9,7 @@ const getTimeCounter = () => {
     const time = today.toLocaleString('en-US', { hour: 'numeric',  minute: 'numeric', hour12: true })
         .toLowerCase();
     timeCounter[hour - 1] =
-        <li className="active-time" key={time}>{time}</li>
+        <li className="active-time md:text-[15px] text-[10px]" key={time}>{time}</li>
     return timeCounter;
 };
 
@@ -21,7 +21,7 @@ const CurrentTime = () => {
         return () => clearInterval(id);
     }, []);
 
-    return <div className="CurrentTime-holder">
+    return <div className="CurrentTime-holder flex flex-row h-[100%-4px] font-[clamp(5px, 2.45vh, 18px)] items-end p-[2px]">
         <ul>{timeCounter}</ul>
     </div>
 };

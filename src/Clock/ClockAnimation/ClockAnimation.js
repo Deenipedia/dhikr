@@ -3,7 +3,7 @@ import './ClockAnimation.css'
 function  ClockAnimation(){
     return(
         <div>
-            <div className="clock-anm-holder flex absolute top-0 -left-[1vw] right-0 bottom-0 justify-center items-center content-center">
+            <div className="flex absolute top-0 -left-[1vw] right-0 bottom-0 justify-center items-center content-center">
                 <svg className="progress" width="30%" height="100%" viewBox="0 0 1318 10912" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -25,7 +25,7 @@ function  ClockAnimation(){
                           fill="#9C1C1C"/>
                 </svg>
             </div>
-            <div className="clock-anm-holder flex absolute top-0 -left-[1vw] right-0 bottom-0 justify-center items-center content-center">
+            <div className="flex absolute top-0 -left-[1vw] right-0 bottom-0 justify-center items-center content-center">
 
 
                 <svg className="progress" width="30%" height="100%" viewBox="0 0 1318 10912" fill="none"

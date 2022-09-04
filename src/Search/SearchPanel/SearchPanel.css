@@ -42,7 +42,7 @@
 .SearchPanel h2
 {
     font-size: clamp(28px, 7.5vh, 50px);
-    font-weight: 400;
+    /*font-weight: 400;*/
 }
 
 
@@ -52,15 +52,15 @@
     color:  #ff00003d;
 }*/
 
-.SearchPanel h1:after
+/*.SearchPanel h1:after
 {
     margin-right: -2.6vh;
 }
 .SearchPanel h1:before
 {
     margin-left: -2.6vh;
-}
-.SearchPanel h6
+}*/
+/*.SearchPanel h6
 {
     font-size: clamp(8px, 2vh, 12px);
     font-weight: 700;
@@ -69,17 +69,17 @@
     padding:3px 6px 2px 6px;
     cursor: pointer;
     border-radius: 8px;
-}
-.SearchPanel h6:hover
+}*/
+/*.SearchPanel h6:hover
 {
     background-color: rgba(95, 158, 160, 0.10);
     color: rgba(0, 0, 0, 0.50);
 
-}
-.SearchPanel p
+}*/
+/*.SearchPanel p
 {
     font-size: clamp(14px, 3vh, 18px);
     font-weight: 400;
-    color: #1A2699;
+    color: black;
     margin-top: 5px;
-}
+}*/

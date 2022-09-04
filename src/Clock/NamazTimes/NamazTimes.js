@@ -34,7 +34,7 @@ const NamazTimes = () => {
     return apiData ?
         <div className="ll-clock-holder">
             <h4><img src="/assets/dhikr_64x64.png" alt="Dhikr logo 64x64"/></h4>
-            <ul>{createTimeline(apiData)}</ul>
+            <ul className='md:text-[15px] text-[12px]'>{createTimeline(apiData)}</ul>
         </div> :
         <></>;
 };

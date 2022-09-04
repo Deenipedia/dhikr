@@ -5,7 +5,7 @@ import SearchBox from "../SearchBox/SearchBox";
 import Shortcuts from "../Shortcuts/Shortcuts";
 
 const SearchPanel = () => (
-    <div className="SearchPanel my-0 mx-5 flex flex-auto flex-col items-center justify-center relative max-w-[450px]">
+    <div className="SearchPanel font-w[400px] w-[40vw] my-0 mx-5 flex  flex-col items-center justify-center relative">
         <Dhikr/>
         <SearchBox/>
         <Shortcuts/>
