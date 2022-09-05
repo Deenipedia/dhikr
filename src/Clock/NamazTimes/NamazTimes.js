@@ -5,14 +5,14 @@ const visibleTimes = ['Fajr', 'Sunrise','Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 
 const createTimeline = ({timings}) => {
     const timeline = [];
-    for (let i = 0; i < 24; i++) timeline[i] = <li key={i}></li>
+    for (let i = 0; i < 24; i++) timeline[i] = <li className="h-[3vh]" key={i}></li>
 
     const addNamazDescription = (name, time) => {
         const [hour, minute] = time.split(":").map(x => parseInt(x));
         const roundedTime = hour + Math.round(minute / 60);
         timeline[roundedTime - 1] =
             <li key={name}>
-                <b>{name}</b> {getFormattedTime(hour, minute)}
+                <b className="text-[#FF5F85]">{name}</b> {getFormattedTime(hour, minute)}
                 <span> {hour >= 12 ? "pm" : "am"}</span>
             </li>;
     };
@@ -32,9 +32,11 @@ const NamazTimes = () => {
     const apiData = useNamazApi();
 
     return apiData ?
-        <div className="ll-clock-holder">
-            <h4><img src="/assets/dhikr_64x64.png" alt="Dhikr logo 64x64"/></h4>
-            <ul className='md:text-[15px] text-[12px]'>{createTimeline(apiData)}</ul>
+        <div className="ll-clock-holder flex h-[100%- 4px] flex-row text-[5px] md:text-[2.45vh] items-end p-[2px]
+        border-r-[1px] border-black text-right relative items-end">
+            <h4 className="absolute top-[10vh] left-[5%] text-center
+            max-w[100%-10px] transform translate-y-[-50%]"><img src="/assets/dhikr_64x64.png" alt="Dhikr logo 64x64"/></h4>
+            <ul className='md:text-[15px] text-[9px] pt-[.30vh] pb-[.30vh] pl-0 pr-0 font-sans relative leading-[3vh]'>{createTimeline(apiData)}</ul>
         </div> :
         <></>;
 };

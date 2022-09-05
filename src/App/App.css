@@ -1,22 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*
-/*{
-  margin: 0;
-  padding: 0;
-}*/
-body
-{
-  font-family: 'Lato', sans-serif;
-}
-/*.App
-{
-  display: flex;
-  flex-flow: row;
-  min-height: 100vh;
-  justify-content: space-between;
-  padding:0 10px;
-  max-width: 1920px;
-  margin: 0 auto;
-}*/
+

@@ -1,86 +1,4 @@
 
-.ll-clock-holder, .lr-clock-holder
-{
-    display: flex;
-    height: calc(100% - 2px * 2);
-    flex-direction: row;
-    font-size: clamp(5px, 2.45vh,18px);
-    align-items: flex-end;
-    padding: 2px;
-}
-.ll-clock-holder ul li,
-.lr-clock-holder ul li
-{
-    padding: .30vh 0;
-    font-family: 'Public Sans', sans-serif;
-    position: relative;
-    line-height: 3vh;
-    height: 3vh;
-}
-.ll-clock-holder ul li:after
-{
-    content: "-";
-    color: rgba(0, 0, 0, 0.30);
-}
-
-.ll-clock-holder b
-{
-    color:#FF5F85;
-}
-
-
-.ll-clock-holder
-{
-    border-right: 1px solid black;
-    text-align: right;
-    min-width: 22vh;
-    justify-content: flex-end;
-    position: relative;
-}
-.ll-clock-holder h4
-{
-    position: absolute;
-    top: 5vh;
-    left: calc(50% - (10px - 1px - 2px)) ;
-    text-align: center;
-    max-width: calc(100% - 10px);
-    transform: translateX(-50%);
-    font-size: clamp(12px, 3.5vh, 18px) ;
-    color: rgba(0, 0, 0, 0.31);
-}
-
-.lr-clock-holder
-{
-    min-width: 13vh;
-}
-.lr-clock-holder ul li
-{
-    padding-left: 2.7vh;
-    height: 3vh;
-}
-.lr-clock-holder ul li:before
-{
-    content: "";
-    width: 2vh;
-    height: 2vh;
-    line-height: 3vh;
-
-
-}
-
-.lr-clock-holder ul .active-time:before
-{
-    /*content: "";
-    position: absolute;
-    top: 52.5%;
-    transform: translateY(-50%);
-    background-color: #FF003D;
-    border-radius: 0 1vh 1vh 0;
-    left:-2px;*/
-}
-
-
-
 @keyframes fade_in {
     0%{
 
@@ -97,4 +15,9 @@
         opacity: 1;
 
     }
+}
+.ll-clock-holder ul li:after
+{
+    content: "-";
+    color: rgba(0, 0, 0, 0.30);
 }

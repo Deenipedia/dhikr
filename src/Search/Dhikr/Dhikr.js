@@ -11,9 +11,9 @@ const Dhikr = () => {
     }, []);
 
     return dhikr && (
-        <div className="text-center md:w-[40vw] w-[40vw] flex min-h-[20vh] flex-col justify-center items-center">
-            <h4>{dhikr.ARABIC}</h4>
-            {dhikr.BANGLA_UCCHARON.length < 25 && <h1>{dhikr.BANGLA_UCCHARON}</h1>}
+        <div className="text-center md:w-[40vw] w-[35vw] flex min-h-[20vh] flex-col justify-center items-center ">
+            <h4 className="mt-[30px] font-serif font-semibold text-[#17A963] text-[28px] md:text-[5.5vh]">{dhikr.ARABIC}</h4>
+            {dhikr.BANGLA_UCCHARON.length < 25 && <h1 className="text-[28px] md:text-[7.5vh]">{dhikr.BANGLA_UCCHARON}</h1>}
             <p>{dhikr.BANGLA_ORTHO}</p>
         </div>
     )

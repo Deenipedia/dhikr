@@ -26,7 +26,7 @@ const SearchBox = () => {
   return (
     <>
   
-<div className="flex-col items-center justify-center bg-white pt-5">
+<div className="flex flex-col items-center justify-center bg-white pt-5 mr-3">
   
   <div className="md:w-[35vw] mx-auto mt-0 flex w-[92%] items-center rounded-full border hover:shadow-md">
 

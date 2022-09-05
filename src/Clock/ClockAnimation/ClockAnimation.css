@@ -1,3 +1,15 @@
+.clock-anm-holder{
+    position: absolute;
+    top: 0;
+    left: -1vw;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
 .progress {
     stroke-dasharray: 10000;
     stroke-dashoffset: -231;
