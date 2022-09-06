@@ -9,7 +9,7 @@ const getTimeCounter = () => {
     const time = today.toLocaleString('en-US', { hour: 'numeric',  minute: 'numeric', hour12: true })
         .toLowerCase();
     timeCounter[hour - 1] =
-        <li className="active-time md:text-[15px] text-[10px] pl-0 pr-0 font-sans relative leading-[3vh] pl-[2.7vh] h-[3vh] before:content-none before:w-[2vh] before:h-[1.2vh] before:leading-[3vh]
+        <li className="active-time md:text-[15px] text-[10px] pl-5 pr-0 font-sans relative leading-[3vh] pl-[2.7vh] h-[3vh] before:content-none before:w-[2vh] before:h-[1.2vh] before:leading-[3vh]
         " key={time}>{time}</li>
     return timeCounter;
 };
