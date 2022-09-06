@@ -1,5 +1,5 @@
 import './App.css';
-import Search from "../Search";
+import Search from "../MidPanel/Search";
 import Clock from "../Clock";
 import Learning from "../Learning";
 

@@ -1,6 +1,6 @@
 // import "./SearchBox.css";
 import { useState } from "react";
-import { chrome } from "../../Utils";
+import { chrome } from "../Utils";
 
 const HTTP_REGEX = new RegExp(
   "http(s)?://([a-z|0-9].*)[a-z|0-9]\\.[a-z|0-9]+.*"

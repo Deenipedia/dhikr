@@ -1,3 +1,3 @@
-import LearningPanel from "./LearningPanel/LearningPanel";
+import LearningPanel from "./LearningPanel";
 
 export default LearningPanel;

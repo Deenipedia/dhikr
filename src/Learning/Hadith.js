@@ -1,4 +1,4 @@
-import {useHadith} from "../Utils";
+import {useHadith} from "./Utils";
 
 const Hadith = ({showQuiz}) => {
     const hadith = useHadith();

@@ -1,6 +1,6 @@
-import QuizOptions from "../QuizOptions/QuizOptions";
-import QuizHeader from "../QuizHeader/QuizHeader";
-import {useQuiz, useStateTransition} from "../Utils";
+import QuizOptions from "./QuizOptions";
+import QuizHeader from "./QuizHeader/QuizHeader";
+import {useQuiz, useStateTransition} from "./Utils";
 
 function Quiz({showHadith}) {
     const [quiz, getNext] = useQuiz();

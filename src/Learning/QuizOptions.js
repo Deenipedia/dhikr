@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {State} from "../Utils";
+import {State} from "./Utils";
 
 const yellow = '#ffd42a47';
 const {timerRunning, correctlyAnswered, incorrectlyAnswered} = State;
