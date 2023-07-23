@@ -15,13 +15,14 @@ const retrieveNamazTimes = (setData) => {
 };
 
 export const useNamazApi = () => {
-    const [apiData, setApiData,done] = useLocalStorage('namazTimes', null);
+    const [apiData, setApiData, done] = useLocalStorage('namazTimes', null);
     useEffect(() => {
         if (done) {
             const currentTime = new Date().getTime();
             if (!(apiData && apiData.lastUpdated + 1000 * 60 * 60 > currentTime))
                 retrieveNamazTimes(setApiData);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [done]);
 
     return apiData;

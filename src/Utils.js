@@ -7,7 +7,7 @@ const mockChrome = {
                 const value = window.localStorage.getItem(key);
                 fn(value && {[key]: JSON.parse(value)})
             },
-            set: (data, fn) =>{
+            set: (data, fn) => {
                 Object.keys(data).forEach(key => window.localStorage.setItem(key, JSON.stringify(data[key])));
                 fn && fn();
             }
@@ -45,11 +45,12 @@ export const useLocalStorage = (key, fallback) => {
         chrome.storage.local.get(key, value => {
 
             setDone(true)
-            if(value!==null && value[key]!==null)
+            if (value !== null && value[key] !== null)
                 setValue(value[key])
-            })
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const saveValue = value => chrome.storage.local.set({[key]: value}, () => setValue(value));
-    return [value, saveValue,done];
+    return [value, saveValue, done];
 }
 

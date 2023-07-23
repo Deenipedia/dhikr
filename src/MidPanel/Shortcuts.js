@@ -1,9 +1,7 @@
 import {useEffect, useState} from "react";
-import {chrome, faviconPrefix} from "../Utils";
+import {chrome} from "../Utils";
 
 const shorten = text => text.length > 14 ? text.slice(0, 12) + '...' : text
-
-const favUrl = site => faviconPrefix() + site.url
 
 const Shortcuts = () => {
     const [topSites, setTopSites] = useState([]);
